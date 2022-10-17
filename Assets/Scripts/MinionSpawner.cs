@@ -46,7 +46,6 @@ public class MinionSpawner : MonoBehaviour
         var worldLocation = _camera.ScreenToWorldPoint(location);
         var circle = Instantiate(prefabsMinion, transform.position, Quaternion.identity);
         circle.transform.position = worldLocation;
-        Debug.Log(RandomAxis());
     }
 
     private Vector3 RandomAxis()

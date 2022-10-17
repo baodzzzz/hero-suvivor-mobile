@@ -476,7 +476,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aca3aa9eb443a6943a215762e8042e00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabsMinion: {fileID: 8680148586094232904}
+  prefabsMinion: {fileID: 5905014330063088224, guid: 2c9177f03e4897d45bc03b9486277a59, type: 3}
 --- !u!1 &731496850
 GameObject:
   m_ObjectHideFlags: 0
@@ -20484,68 +20484,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!1001 &8680148586094232903
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4290151497464103890, guid: 2c9177f03e4897d45bc03b9486277a59, type: 3}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 4290151497464103890, guid: 2c9177f03e4897d45bc03b9486277a59, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4290151497464103890, guid: 2c9177f03e4897d45bc03b9486277a59, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4290151497464103890, guid: 2c9177f03e4897d45bc03b9486277a59, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4290151497464103890, guid: 2c9177f03e4897d45bc03b9486277a59, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4290151497464103890, guid: 2c9177f03e4897d45bc03b9486277a59, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4290151497464103890, guid: 2c9177f03e4897d45bc03b9486277a59, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4290151497464103890, guid: 2c9177f03e4897d45bc03b9486277a59, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4290151497464103890, guid: 2c9177f03e4897d45bc03b9486277a59, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4290151497464103890, guid: 2c9177f03e4897d45bc03b9486277a59, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4290151497464103890, guid: 2c9177f03e4897d45bc03b9486277a59, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5905014330063088224, guid: 2c9177f03e4897d45bc03b9486277a59, type: 3}
-      propertyPath: m_Name
-      value: Minion
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2c9177f03e4897d45bc03b9486277a59, type: 3}
---- !u!1 &8680148586094232904 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5905014330063088224, guid: 2c9177f03e4897d45bc03b9486277a59, type: 3}
-  m_PrefabInstance: {fileID: 8680148586094232903}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &9077839226984060825
 PrefabInstance:
   m_ObjectHideFlags: 0
