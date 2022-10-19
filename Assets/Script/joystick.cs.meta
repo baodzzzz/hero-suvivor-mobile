@@ -3,7 +3,12 @@ guid: d13ef9cf3468fc8419194fe3db0e71c2
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - player: {instanceID: 0}
+  - circle: {instanceID: 0}
+  - outerCircle: {instanceID: 0}
+  - prefabBulletSmall: {fileID: 976023429854472430, guid: 413708ea8271fbf42a7c5fcccee39fe9, type: 3}
+  - prefabWhipAttack: {fileID: 3925181622459694659, guid: d5a62323e55de4641b898c92f35817a2, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

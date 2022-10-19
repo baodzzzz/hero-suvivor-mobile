@@ -6,7 +6,7 @@ using UnityEngine;
 public class MainCharacterSkill : MonoBehaviour
 {
    
-    Vector2 thrustDirection = new Vector2(0, 1); 
+    
     
     [SerializeField]
     GameObject prefabBulletSmall;

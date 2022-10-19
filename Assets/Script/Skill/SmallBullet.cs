@@ -22,11 +22,11 @@ public class SmallBullet : MonoBehaviour
             Destroy(gameObject);
         }
     }
-   /* public void ApplyForce(Vector2 forceDirection)
+    public void ApplyForce(Vector2 forceDirection)
     {
         const float forceMagnitude = 3;
         GetComponent<Rigidbody2D>().AddForce(
             forceMagnitude * forceDirection,
             ForceMode2D.Impulse);
-    }*/
+    }
 }

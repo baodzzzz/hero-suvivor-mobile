@@ -14,7 +14,23 @@ public class joystick : MonoBehaviour
     public Transform outerCircle;
     Animate animate;
     // Update is called once per frame
-  
+
+    [SerializeField]
+    GameObject prefabBulletSmall;
+    [SerializeField]
+    GameObject prefabWhipAttack;
+
+    const float smallBulletLifeSeconds = 0.5f;
+    Timer deathTimer;
+    bool isShoot=false;
+    
+
+    private void Start()
+    {
+        deathTimer = gameObject.AddComponent<Timer>();
+        deathTimer.Duration = smallBulletLifeSeconds;
+        deathTimer.Run();
+    }
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -41,10 +57,25 @@ public class joystick : MonoBehaviour
     }
     private void FixedUpdate()
     {
+       
         if (touchStart)
         {
             Vector2 offset = pointB - pointA;
             Vector2 direction = Vector2.ClampMagnitude(offset, 1.0f);
+            /* GameObject bullet = Instantiate(prefabBulletSmall, transform.position, Quaternion.identity);
+             SmallBullet script = bullet.GetComponent<SmallBullet>();
+             script.ApplyForce(direction);*/
+           
+            if (isShoot == false)
+            {
+               
+                GameObject  bullet = Instantiate(prefabBulletSmall, transform.position, Quaternion.identity);
+                SmallBullet script = bullet.GetComponent<SmallBullet>();
+                script.ApplyForce(direction);
+                isShoot = true;             
+            }
+            
+
             moveCharacter(direction * -1);
 
             circle.transform.position = new Vector2(pointA.x + direction.x, pointA.y + direction.y) * -1;
