@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public class joystick : MonoBehaviour
 {
@@ -20,9 +21,11 @@ public class joystick : MonoBehaviour
     [SerializeField]
     GameObject prefabWhipAttack;
 
-    const float smallBulletLifeSeconds = 0.5f;
+    [SerializeField]
+    GameObject gameSkillController;
+    const float smallBulletLifeSeconds = 0.3f;
     Timer deathTimer;
-    bool isShoot=false;
+  
     
 
     private void Start()
@@ -62,20 +65,13 @@ public class joystick : MonoBehaviour
         {
             Vector2 offset = pointB - pointA;
             Vector2 direction = Vector2.ClampMagnitude(offset, 1.0f);
-            /* GameObject bullet = Instantiate(prefabBulletSmall, transform.position, Quaternion.identity);
-             SmallBullet script = bullet.GetComponent<SmallBullet>();
-             script.ApplyForce(direction);*/
+          
+            GameSkillController script = gameSkillController.GetComponent<GameSkillController>();
+            script.setDirection(direction);
            
-            if (isShoot == false)
-            {
-               
-                GameObject  bullet = Instantiate(prefabBulletSmall, transform.position, Quaternion.identity);
-                SmallBullet script = bullet.GetComponent<SmallBullet>();
-                script.ApplyForce(direction);
-                isShoot = true;             
-            }
-            
-
+            Shoot(prefabBulletSmall, direction);
+                
+           
             moveCharacter(direction * -1);
 
             circle.transform.position = new Vector2(pointA.x + direction.x, pointA.y + direction.y) * -1;
@@ -91,4 +87,16 @@ public class joystick : MonoBehaviour
     {
         player.Translate(direction * speed * Time.deltaTime);
     }
+    void Shoot(GameObject gameObject ,Vector2 direction)
+    {
+        if (deathTimer.Finished)
+        {
+            GameObject Bullet = Instantiate(gameObject, player.position, Quaternion.identity) as GameObject;
+            Bullet.GetComponent<Rigidbody2D>().AddForce(direction * 5f, ForceMode2D.Impulse);
+            deathTimer.Duration = smallBulletLifeSeconds;
+            deathTimer.Run();
+        }
+
+    }
+
 }

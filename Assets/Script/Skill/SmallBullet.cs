@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SmallBullet : MonoBehaviour
 {
-    const float LifeSeconds = 3;
+    const float LifeSeconds = 2;
     Timer deathTimer;
     // Start is called before the first frame update
     void Start()
