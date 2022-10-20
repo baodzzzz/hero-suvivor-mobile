@@ -52,11 +52,11 @@ public class MinionSpawner : MonoBehaviour
     {
         if (Random.value > 0.5f)
         {
-            return new Vector3(-Random.Range(_minSpawnX, _maxSpawnX), 0,
+            return new Vector3(Random.Range(_minSpawnX, _maxSpawnX), 0,
                 -_camera.transform.position.z);
         }
 
-        return new Vector3(0, -Random.Range(_minSpawnY, _maxSpawnY),
+        return new Vector3(0, Random.Range(_minSpawnY, _maxSpawnY),
             -_camera.transform.position.z);
     }
 }
