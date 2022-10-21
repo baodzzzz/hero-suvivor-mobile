@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SmallBullet : MonoBehaviour
 {
-    const float LifeSeconds = 3;
+    const float LifeSeconds = 2;
     Timer deathTimer;
     // Start is called before the first frame update
     void Start()
@@ -22,11 +22,11 @@ public class SmallBullet : MonoBehaviour
             Destroy(gameObject);
         }
     }
-   /* public void ApplyForce(Vector2 forceDirection)
+    public void ApplyForce(Vector2 forceDirection)
     {
         const float forceMagnitude = 3;
         GetComponent<Rigidbody2D>().AddForce(
             forceMagnitude * forceDirection,
             ForceMode2D.Impulse);
-    }*/
+    }
 }
