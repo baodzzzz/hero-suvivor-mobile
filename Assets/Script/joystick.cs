@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public class joystick : MonoBehaviour
 {
@@ -14,7 +15,25 @@ public class joystick : MonoBehaviour
     public Transform outerCircle;
     Animate animate;
     // Update is called once per frame
+
+    [SerializeField]
+    GameObject prefabBulletSmall;
+    [SerializeField]
+    GameObject prefabWhipAttack;
+
+    [SerializeField]
+    GameObject gameSkillController;
+    const float smallBulletLifeSeconds = 0.3f;
+    Timer deathTimer;
   
+    
+
+    private void Start()
+    {
+        deathTimer = gameObject.AddComponent<Timer>();
+        deathTimer.Duration = smallBulletLifeSeconds;
+        deathTimer.Run();
+    }
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -41,10 +60,18 @@ public class joystick : MonoBehaviour
     }
     private void FixedUpdate()
     {
+       
         if (touchStart)
         {
             Vector2 offset = pointB - pointA;
             Vector2 direction = Vector2.ClampMagnitude(offset, 1.0f);
+          
+            GameSkillController script = gameSkillController.GetComponent<GameSkillController>();
+            script.setDirection(direction);
+           
+            Shoot(prefabBulletSmall, direction);
+                
+           
             moveCharacter(direction * -1);
 
             circle.transform.position = new Vector2(pointA.x + direction.x, pointA.y + direction.y) * -1;
@@ -60,4 +87,16 @@ public class joystick : MonoBehaviour
     {
         player.Translate(direction * speed * Time.deltaTime);
     }
+    void Shoot(GameObject gameObject ,Vector2 direction)
+    {
+        if (deathTimer.Finished)
+        {
+            GameObject Bullet = Instantiate(gameObject, player.position, Quaternion.identity) as GameObject;
+            Bullet.GetComponent<Rigidbody2D>().AddForce(direction * 5f, ForceMode2D.Impulse);
+            deathTimer.Duration = smallBulletLifeSeconds;
+            deathTimer.Run();
+        }
+
+    }
+
 }

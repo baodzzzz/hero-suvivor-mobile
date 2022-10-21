@@ -1,32 +1,48 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SmallBullet : MonoBehaviour
+namespace Script.Skill
 {
-    const float LifeSeconds = 3;
-    Timer deathTimer;
-    // Start is called before the first frame update
-    void Start()
+    public class SmallBullet : MonoBehaviour
     {
-        deathTimer = gameObject.AddComponent<Timer>();
-        deathTimer.Duration = LifeSeconds;
-        deathTimer.Run();
-    }
+        const float LifeSeconds = 2;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (deathTimer.Finished)
+        Timer deathTimer;
+
+        // Start is called before the first frame update
+        void Start()
         {
-            Destroy(gameObject);
+            deathTimer = gameObject.AddComponent<Timer>();
+            deathTimer.Duration = LifeSeconds;
+            deathTimer.Run();
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            if (deathTimer.Finished)
+            {
+                Destroy(gameObject);
+            }
+        }
+
+        public void ApplyForce(Vector2 forceDirection)
+        {
+            const float forceMagnitude = 3;
+            GetComponent<Rigidbody2D>().AddForce(
+                forceMagnitude * forceDirection,
+                ForceMode2D.Impulse);
+        }
+
+        private void OnCollisionEnter2D(Collision2D col)
+        {
+            if (col.gameObject.CompareTag("Minion"))
+            {
+                Destroy(gameObject);
+                Debug.Log("BEEMMMM!");
+            }
         }
     }
-   /* public void ApplyForce(Vector2 forceDirection)
-    {
-        const float forceMagnitude = 3;
-        GetComponent<Rigidbody2D>().AddForce(
-            forceMagnitude * forceDirection,
-            ForceMode2D.Impulse);
-    }*/
 }

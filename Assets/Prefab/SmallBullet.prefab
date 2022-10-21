@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 976023429854472433}
   - component: {fileID: 3004890037380708530}
   - component: {fileID: 276788888}
-  - component: {fileID: 6928107094118641540}
+  - component: {fileID: 1171061002415315585}
   m_Layer: 0
   m_Name: SmallBullet
   m_TagString: SmallBullet
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -958608811
+  m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 3625043607559282579, guid: 37cb01b92e67dca41a5fa2a0e8602508, type: 3}
@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b136995fb0725d64c9df1a9d4ba91b82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!50 &6928107094118641540
+--- !u!50 &1171061002415315585
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
