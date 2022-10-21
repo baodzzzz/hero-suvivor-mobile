@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Script
@@ -11,7 +12,7 @@ namespace Script
         // Start is called before the first frame update
         private void Start()
         {
-            _speed = 3f;
+            _speed = 1.5f;
             _player = GameObject.FindGameObjectWithTag("Player");
         }
 
@@ -22,9 +23,18 @@ namespace Script
                 Vector2.MoveTowards(transform.position, _player.transform.position, Time.deltaTime * _speed);
         }
 
-        private void OnCollisionEnter2D(Collision2D col)
+        // private void OnCollisionEnter2D(Collision2D col)
+        // {
+        //     if (col.gameObject.CompareTag("SmallBullet"))
+        //     {
+        //         Debug.Log("BOOM");
+        //         Destroy(gameObject);
+        //     }
+
+
+        private void OnTriggerEnter2D(Collider2D col)
         {
-            if (col.gameObject.CompareTag("SmallBullet"))
+            if (col.gameObject.CompareTag("SmallBullet") || col.gameObject.CompareTag("WhipAttack"))
             {
                 Debug.Log("BOOM");
                 Destroy(gameObject);
