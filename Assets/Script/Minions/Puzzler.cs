@@ -17,7 +17,7 @@ namespace Script.Minions
         private void Start()
         {
             _counter = 0;
-            _speed = 3f;
+            _speed = 2f;
             _player = GameObject.FindGameObjectWithTag("Player");
             _breakpoint = new Vector3(Random.Range(-_screenBound.x, _screenBound.x),
                 Random.Range(-_screenBound.y, _screenBound.y), 0);
@@ -32,7 +32,7 @@ namespace Script.Minions
         {
             if (_counter >= 5)
             {
-                _speed = 9f;
+                _speed = 6f;
                 transform.position =
                     Vector2.MoveTowards(transform.position, _player.transform.position, Time.deltaTime * _speed);
                 return;

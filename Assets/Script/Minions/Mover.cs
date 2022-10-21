@@ -12,7 +12,7 @@ namespace Script.Minions
         // Start is called before the first frame update
         private void Start()
         {
-            _speed = 7f;
+            _speed = 5f;
             _player = GameObject.FindGameObjectWithTag("Player");
         }
 

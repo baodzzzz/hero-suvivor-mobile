@@ -12,7 +12,7 @@ namespace Script
         // Start is called before the first frame update
         private void Start()
         {
-            _speed = 3f;
+            _speed = 1.5f;
             _player = GameObject.FindGameObjectWithTag("Player");
         }
 
