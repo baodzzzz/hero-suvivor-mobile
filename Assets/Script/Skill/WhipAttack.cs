@@ -21,7 +21,8 @@ namespace MyNamespace
         // Update is called once per frame
         void Update()
         {
-            gameObject.transform.localScale += gameObject.transform.localScale * Time.deltaTime;
+
+            gameObject.transform.localScale += gameObject.transform.localScale * Time.deltaTime;                    
             if (deathTimer.Finished)
             {
                 Destroy(gameObject);

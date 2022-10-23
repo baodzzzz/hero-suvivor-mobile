@@ -14,11 +14,12 @@ public class GameSkillController : MonoBehaviour
     // Start is called before the first frame update
     public void ActiveSkill()
     {
-        var dir = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized;
+        float angle = Random.Range(0, Mathf.PI * 2);
+        Vector2 direction = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
         if (deathTimer.Finished)
         {
             GameObject Bullet = Instantiate(prefabWhipAttack, player.position, Quaternion.identity) as GameObject;
-            Bullet.GetComponent<Rigidbody2D>().AddForce(dir * 3f, ForceMode2D.Impulse);
+            Bullet.GetComponent<Rigidbody2D>().AddForce(direction * 3f, ForceMode2D.Impulse);
             deathTimer.Duration = LifeSeconds;
             deathTimer.Run();
         }
@@ -38,7 +39,12 @@ public class GameSkillController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        GameObject crep = GameObject.FindGameObjectWithTag("Minion");
+        float distance = Vector3.Distance(crep.transform.position, gameObject.transform.position);
+        if (distance < 10f)
+        {
+            prefabWhipAttack.transform.position = Vector2.MoveTowards(transform.position, crep.transform.position, Time.deltaTime * 3f);
+        }
     }
 
    

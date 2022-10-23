@@ -529,8 +529,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 034bd26032f277445977a62802540d5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 326063494}
   prefabBulletSmall: {fileID: 976023429854472430, guid: 413708ea8271fbf42a7c5fcccee39fe9, type: 3}
   prefabWhipAttack: {fileID: 3925181622459694659, guid: d5a62323e55de4641b898c92f35817a2, type: 3}
+  gameSkillController: {fileID: 1318072849}
 --- !u!1 &425308462
 GameObject:
   m_ObjectHideFlags: 0
@@ -4620,7 +4622,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: 1832041787
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &1079338036
@@ -19704,7 +19706,6 @@ MonoBehaviour:
   outerCircle: {fileID: 877396778}
   prefabBulletSmall: {fileID: 976023429854472430, guid: 413708ea8271fbf42a7c5fcccee39fe9, type: 3}
   prefabWhipAttack: {fileID: 3925181622459694659, guid: d5a62323e55de4641b898c92f35817a2, type: 3}
-  gameSkillController: {fileID: 1318072849}
 --- !u!114 &1870013480
 MonoBehaviour:
   m_ObjectHideFlags: 0
