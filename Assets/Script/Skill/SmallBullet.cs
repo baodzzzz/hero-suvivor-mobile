@@ -43,6 +43,11 @@ namespace Script.Skill
                 Destroy(gameObject);
                 Debug.Log("BEEMMMM!");
             }
+            if (col.gameObject.CompareTag("Player"))
+            {
+                Destroy(gameObject);
+                Debug.Log("BEEMMMM!");
+            }
         }
     }
 }

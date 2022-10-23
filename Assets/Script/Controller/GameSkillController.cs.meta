@@ -3,7 +3,9 @@ guid: 19e4d5186d55e464e9b597c54ba80fd8
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - player: {instanceID: 0}
+  - prefabWhipAttack: {fileID: 3925181622459694659, guid: d5a62323e55de4641b898c92f35817a2, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -65,6 +65,11 @@ namespace Script.Minions
                 Debug.Log("BOOM");
                 Destroy(gameObject);
             }
+            if (col.gameObject.CompareTag("Player"))
+            {
+                Destroy(gameObject);
+                Debug.Log("BEEMMMM!");
+            }
         }
     }
 }
