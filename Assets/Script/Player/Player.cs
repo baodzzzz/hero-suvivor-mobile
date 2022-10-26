@@ -6,13 +6,17 @@ using UnityEngine;
 
 public class Player : MonoBehaviour 
 {
-    public FixedJoystick joystick;
-    private Rigidbody rb;
-    private float moveH, moveV, speedMove = 5;
+    private Rigidbody2D rb;
+    private float moveH, moveV;
+    public float BaseSpeed { get; set; } = 5;
+    public float SmoothTime { get; set; } = 0.04f;
+    private Vector3 moveDir;
+    private Vector3 velocitySmoothing;
+    public FloatingJoystick joystick;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody2D>();
 
     }
     // Update is called once per frame
@@ -22,15 +26,9 @@ public class Player : MonoBehaviour
     }
     void movePlayer()
     {
-        // moveH = Input.GetAxis("Horizontal");
-        //moveV = Input.GetAxis("Vertical");
         moveH = joystick.Horizontal;
         moveV = joystick.Vertical;
-        Vector3 dir = new Vector3(moveH, 0, moveV);
-        rb.velocity = new Vector3(moveH * speedMove, rb.velocity.y, moveV*speedMove);
-        if(dir != Vector3.zero)
-        {
-            transform.LookAt(transform.position + dir);
-        }
+        moveDir = new Vector2(moveH, moveV);
+        rb.velocity = Vector3.SmoothDamp(rb.velocity, moveDir * BaseSpeed, ref velocitySmoothing, SmoothTime);
     }
 }
