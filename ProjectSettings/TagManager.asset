@@ -7,7 +7,7 @@ TagManager:
   - Minion
   - SmallBullet
   - WhipAttack
-  - SingleAttack
+  - InputControl
   layers:
   - Default
   - TransparentFX
