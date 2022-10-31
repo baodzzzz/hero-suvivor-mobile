@@ -9,6 +9,13 @@ namespace MyNamespace
         const float LifeSeconds = 2;
 
         Timer deathTimer;
+        private int _damage;
+
+        public int Damage
+        {
+            get => _damage;
+            set => _damage = value;
+        }
 
         // Start is called before the first frame update
         void Start()
@@ -16,6 +23,7 @@ namespace MyNamespace
             deathTimer = gameObject.AddComponent<Timer>();
             deathTimer.Duration = LifeSeconds;
             deathTimer.Run();
+            _damage = 20;
         }
 
         // Update is called once per frame

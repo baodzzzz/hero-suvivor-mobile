@@ -7,9 +7,15 @@ namespace Script.Skill
 {
     public class SmallBullet : MonoBehaviour
     {
-        const float LifeSeconds = 2;
+        private const float LifeSeconds = 2;
+        private Timer deathTimer;
+        private int _damage;
 
-        Timer deathTimer;
+        public int Damage
+        {
+            get => _damage;
+            set => _damage = value;
+        }
 
         // Start is called before the first frame update
         void Start()
@@ -17,6 +23,7 @@ namespace Script.Skill
             deathTimer = gameObject.AddComponent<Timer>();
             deathTimer.Duration = LifeSeconds;
             deathTimer.Run();
+            _damage = 12;
         }
 
         // Update is called once per frame
@@ -41,7 +48,6 @@ namespace Script.Skill
             if (col.gameObject.CompareTag("Minion"))
             {
                 Destroy(gameObject);
-                Debug.Log("BEEMMMM!");
             }
         }
     }
