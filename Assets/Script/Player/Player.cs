@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     private Vector3 velocitySmoothing;
     private int _hp;
     
-    public FloatingJoystick joystick;
+    public FixedJoystick joystick;
 
     void Start()
     {
