@@ -24,12 +24,14 @@ namespace Script.Controller
         // Update is called once per frame
         void Update()
         {
-            float distance = Vector3.Distance(crep.transform.position, gameObject.transform.position);
+            if (!crep) return;
+            var distance = Vector3.Distance(crep.transform.position, transform.position);
             if (distance < 10f)
             {
                 prefabWhipAttack.transform.position =
                     Vector2.MoveTowards(transform.position, crep.transform.position, Time.deltaTime * 3f);
             }
+
         }
 
 
