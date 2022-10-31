@@ -29,7 +29,8 @@ namespace MyNamespace
         // Update is called once per frame
         void Update()
         {
-            gameObject.transform.localScale += gameObject.transform.localScale * Time.deltaTime;
+
+            gameObject.transform.localScale += gameObject.transform.localScale * Time.deltaTime;                    
             if (deathTimer.Finished)
             {
                 Destroy(gameObject);
@@ -43,6 +44,14 @@ namespace MyNamespace
                 forceMagnitude * forceDirection,
                 ForceMode2D.Impulse);
 
+        }
+        private void OnCollisionEnter2D(Collision2D col)
+        {
+            if (col.gameObject.CompareTag("Minion"))
+            {
+                Destroy(gameObject);
+                Debug.Log("BEEMMMM!");
+            }
         }
     }
 }

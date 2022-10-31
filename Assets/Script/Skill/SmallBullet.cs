@@ -29,10 +29,17 @@ namespace Script.Skill
         // Update is called once per frame
         void Update()
         {
+            GameObject crep = GameObject.FindGameObjectWithTag("Minion");
+            float distance = Vector3.Distance(crep.transform.position, gameObject.transform.position);
+            if (distance < 10f)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, crep.transform.position, Time.deltaTime * 3f);
+            }
             if (deathTimer.Finished)
             {
                 Destroy(gameObject);
             }
+
         }
 
         public void ApplyForce(Vector2 forceDirection)
@@ -48,6 +55,11 @@ namespace Script.Skill
             if (col.gameObject.CompareTag("Minion"))
             {
                 Destroy(gameObject);
+            }
+            if (col.gameObject.CompareTag("Player"))
+            {
+                Destroy(gameObject);
+                Debug.Log("BEEMMMM!");
             }
         }
     }
