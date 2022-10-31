@@ -12,9 +12,13 @@ public class Player : MonoBehaviour
     public float SmoothTime { get; set; } = 0.04f;
     private Vector3 moveDir;
     private Vector3 velocitySmoothing;
+<<<<<<< HEAD
     private int _hp;
     
     public FloatingJoystick joystick;
+=======
+    public FixedJoystick joystick;
+>>>>>>> main
 
     void Start()
     {
