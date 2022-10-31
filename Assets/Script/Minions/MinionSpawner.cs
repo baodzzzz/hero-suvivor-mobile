@@ -12,10 +12,10 @@ namespace Script.Minions
         [SerializeField] private GameObject prefabsMover;
         [SerializeField] private GameObject prefabsPuzzler;
 
-        public const int SpawnBorderSize = 100;
+        private const int SpawnBorderSize = 100;
 
         private Timer _spawnTimer;
-        private Timer _delayTimer;
+        private Timer _delaySpawnTimer;
 
         private float _minSpawnX;
         private float _maxSpawnX;
@@ -34,7 +34,7 @@ namespace Script.Minions
             _maxSpawnY = Screen.height - SpawnBorderSize;
 
             _spawnTimer = gameObject.AddComponent<Timer>();
-            _delayTimer = gameObject.AddComponent<Timer>();
+            _delaySpawnTimer = gameObject.AddComponent<Timer>();
             _spawnTimer.Duration = 2;
             _spawnTimer.Run();
             _spawnPosition = transform.position;
@@ -52,42 +52,32 @@ namespace Script.Minions
         private void Spawner()
         {
             var miLocation = RandomAxis();
+            var minion = Instantiate(prefabsMinion, _spawnPosition, Quaternion.identity);
+            minion.transform.position = _camera.ScreenToWorldPoint(miLocation);
             var mLocation = RandomAxis();
             var pLocation = RandomAxis();
 
-            var minion = Instantiate(prefabsMinion, _spawnPosition, Quaternion.identity);
             var mover = Instantiate(prefabsMover, _spawnPosition, Quaternion.identity);
             var puzzler = Instantiate(prefabsPuzzler, _spawnPosition, Quaternion.identity);
-            minion.transform.position = _camera.ScreenToWorldPoint(miLocation);
 
             mover.transform.position = _camera.ScreenToWorldPoint(mLocation);
-
+            
             puzzler.transform.position = _camera.ScreenToWorldPoint(pLocation);
         }
 
         private Vector3 RandomAxis()
         {
             var rand = Random.value;
-            if (rand >= 0.5f)
+            var cameraPositionZ = _camera.transform.position.z;
+            return rand switch
             {
-                if (rand >= 0.75f)
-                {
-                    return new Vector3(Random.Range(_minSpawnX, _maxSpawnX), _minSpawnY,
-                        -_camera.transform.position.z);
-                }
-
-                return new Vector3(_maxSpawnX, Random.Range(_minSpawnY, _maxSpawnY),
-                    -_camera.transform.position.z);
-            }
-
-            if (rand <= 0.25f)
-            {
-                return new Vector3(Random.Range(_minSpawnX, _maxSpawnX), _maxSpawnY,
-                    -_camera.transform.position.z);
-            }
-
-            return new Vector3(_minSpawnX, Random.Range(_minSpawnY, _maxSpawnY),
-                -_camera.transform.position.z);
+                >= 0.5f and >= 0.75f => new Vector3(Random.Range(_minSpawnX, _maxSpawnX), _minSpawnY,
+                    -cameraPositionZ),
+                >= 0.5f => new Vector3(_maxSpawnX, Random.Range(_minSpawnY, _maxSpawnY), -cameraPositionZ),
+                <= 0.25f => new Vector3(Random.Range(_minSpawnX, _maxSpawnX), _maxSpawnY,
+                    -cameraPositionZ),
+                _ => new Vector3(_minSpawnX, Random.Range(_minSpawnY, _maxSpawnY), -cameraPositionZ)
+            };
         }
     }
 }

@@ -36,16 +36,11 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.CompareTag("Minion") )
+        if (!col.gameObject.CompareTag("Minion")) return;
+        _hp -= 1;
+        if (_hp <= 0)
         {
-            _hp -= 1;
-            if (_hp <= 0)
-            {
-                Debug.Log("You was died!");                
-            }
-            {
-                
-            }
+            Debug.Log("You was died!");                
         }
     }
 }
