@@ -7,9 +7,15 @@ namespace Script.Skill
 {
     public class SmallBullet : MonoBehaviour
     {
-        const float LifeSeconds = 2;
+        private const float LifeSeconds = 2;
+        private Timer deathTimer;
+        private int _damage;
 
-        Timer deathTimer;
+        public int Damage
+        {
+            get => _damage;
+            set => _damage = value;
+        }
 
         // Start is called before the first frame update
         void Start()
@@ -17,15 +23,23 @@ namespace Script.Skill
             deathTimer = gameObject.AddComponent<Timer>();
             deathTimer.Duration = LifeSeconds;
             deathTimer.Run();
+            _damage = 12;
         }
 
         // Update is called once per frame
         void Update()
         {
+            GameObject crep = GameObject.FindGameObjectWithTag("Minion");
+            float distance = Vector3.Distance(crep.transform.position, gameObject.transform.position);
+            if (distance < 10f)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, crep.transform.position, Time.deltaTime * 3f);
+            }
             if (deathTimer.Finished)
             {
                 Destroy(gameObject);
             }
+
         }
 
         public void ApplyForce(Vector2 forceDirection)
@@ -39,6 +53,10 @@ namespace Script.Skill
         private void OnCollisionEnter2D(Collision2D col)
         {
             if (col.gameObject.CompareTag("Minion"))
+            {
+                Destroy(gameObject);
+            }
+            if (col.gameObject.CompareTag("Player"))
             {
                 Destroy(gameObject);
                 Debug.Log("BEEMMMM!");

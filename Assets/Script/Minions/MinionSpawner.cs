@@ -12,15 +12,15 @@ namespace Script.Minions
         [SerializeField] private GameObject prefabsMover;
         [SerializeField] private GameObject prefabsPuzzler;
 
+        private const int SpawnBorderSize = 100;
+
         private Timer _spawnTimer;
+        private Timer _delaySpawnTimer;
 
-        private const int SpawnerBorderSize = 100;
-
-        private int _minSpawnX;
-        private int _maxSpawnX;
-        private int _minSpawnY;
-
-        private int _maxSpawnY;
+        private float _minSpawnX;
+        private float _maxSpawnX;
+        private float _minSpawnY;
+        private float _maxSpawnY;
         private Camera _camera;
         private Vector3 _spawnPosition;
 
@@ -28,12 +28,13 @@ namespace Script.Minions
         void Start()
         {
             _camera = Camera.main;
-            _minSpawnX = SpawnerBorderSize;
-            _maxSpawnX = Screen.width - SpawnerBorderSize;
-            _minSpawnY = SpawnerBorderSize;
-            _maxSpawnY = Screen.height - SpawnerBorderSize;
+            _minSpawnX = SpawnBorderSize;
+            _maxSpawnX = Screen.width - SpawnBorderSize;
+            _minSpawnY = SpawnBorderSize;
+            _maxSpawnY = Screen.height - SpawnBorderSize;
 
             _spawnTimer = gameObject.AddComponent<Timer>();
+            _delaySpawnTimer = gameObject.AddComponent<Timer>();
             _spawnTimer.Duration = 2;
             _spawnTimer.Run();
             _spawnPosition = transform.position;
@@ -50,30 +51,32 @@ namespace Script.Minions
 
         private void Spawner()
         {
-            var cLocation = RandomAxis();
+            var miLocation = RandomAxis();
+            var minion = Instantiate(prefabsMinion, _spawnPosition, Quaternion.identity);
+            minion.transform.position = _camera.ScreenToWorldPoint(miLocation);
             var mLocation = RandomAxis();
             var pLocation = RandomAxis();
 
-            var circle = Instantiate(prefabsMinion, _spawnPosition, Quaternion.identity);
             var mover = Instantiate(prefabsMover, _spawnPosition, Quaternion.identity);
             var puzzler = Instantiate(prefabsPuzzler, _spawnPosition, Quaternion.identity);
-            circle.transform.position = _camera.ScreenToWorldPoint(cLocation);
 
             mover.transform.position = _camera.ScreenToWorldPoint(mLocation);
-
             puzzler.transform.position = _camera.ScreenToWorldPoint(pLocation);
         }
 
         private Vector3 RandomAxis()
         {
-            if (Random.value > 0.5f)
+            var rand = Random.value;
+            var cameraPositionZ = _camera.transform.position.z;
+            return rand switch
             {
-                return new Vector3(Random.Range(_minSpawnX, _maxSpawnX), 0,
-                    -_camera.transform.position.z);
-            }
-
-            return new Vector3(0, Random.Range(_minSpawnY, _maxSpawnY),
-                -_camera.transform.position.z);
+                >= 0.5f and >= 0.75f => new Vector3(Random.Range(_minSpawnX, _maxSpawnX), _minSpawnY,
+                    -cameraPositionZ),
+                >= 0.5f => new Vector3(_maxSpawnX, Random.Range(_minSpawnY, _maxSpawnY), -cameraPositionZ),
+                <= 0.25f => new Vector3(Random.Range(_minSpawnX, _maxSpawnX), _maxSpawnY,
+                    -cameraPositionZ),
+                _ => new Vector3(_minSpawnX, Random.Range(_minSpawnY, _maxSpawnY), -cameraPositionZ)
+            };
         }
     }
 }
