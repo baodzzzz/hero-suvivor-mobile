@@ -61,7 +61,6 @@ namespace Script.Minions
             var puzzler = Instantiate(prefabsPuzzler, _spawnPosition, Quaternion.identity);
 
             mover.transform.position = _camera.ScreenToWorldPoint(mLocation);
-            
             puzzler.transform.position = _camera.ScreenToWorldPoint(pLocation);
         }
 

@@ -12,6 +12,9 @@ namespace Script.Minions
         private int _hp;
         private SmallBullet _smallBullet;
         private WhipAttack _whipAttack;
+        private SpriteRenderer _minion;
+        private Vector3 _minionPosition;
+        private Vector3 _playerPosition;
 
         // Start is called before the first frame update
         private void Start()
@@ -21,13 +24,17 @@ namespace Script.Minions
             _hp = 10;
             _smallBullet = gameObject.GetComponent<SmallBullet>();
             _whipAttack = gameObject.GetComponent<WhipAttack>();
+            _minion = gameObject.GetComponent<SpriteRenderer>();
         }
 
         // Update is called once per frame
         private void Update()
         {
+            _minionPosition = transform.position;
+            _playerPosition = _player.transform.position;
+            _minion.flipX = _minionPosition.x > _playerPosition.x;
             transform.position =
-                Vector2.MoveTowards(transform.position, _player.transform.position, Time.deltaTime * _speed);
+                Vector2.MoveTowards(_minionPosition, _playerPosition, Time.deltaTime * _speed);
         }
 
         private void OnTriggerEnter2D(Collider2D col)
