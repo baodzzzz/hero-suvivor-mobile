@@ -10,6 +10,7 @@ namespace Script.Skill
         private const float LifeSeconds = 2;
         private Timer deathTimer;
         private int _damage;
+        private GameObject crep;
 
         public int Damage
         {
@@ -24,13 +25,14 @@ namespace Script.Skill
             deathTimer.Duration = LifeSeconds;
             deathTimer.Run();
             _damage = 12;
+            crep = GameObject.FindGameObjectWithTag("Minion");
         }
 
         // Update is called once per frame
         void Update()
         {
-            GameObject crep = GameObject.FindGameObjectWithTag("Minion");
-            float distance = Vector3.Distance(crep.transform.position, gameObject.transform.position);
+            if (!crep) return;
+            var distance = Vector3.Distance(crep.transform.position, transform.position);
             if (distance < 10f)
             {
                 transform.position = Vector2.MoveTowards(transform.position, crep.transform.position, Time.deltaTime * 3f);

@@ -1,3 +1,4 @@
+using Script.Controller;
 using UnityEngine;
 
 namespace Script.Skill
@@ -32,7 +33,7 @@ namespace Script.Skill
             Vector2 direction = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
             /* Vector2 direction = FindClosestCrep();*/
 
-            GameSkillController script = gameSkillController.GetComponent<GameSkillController>();
+            var script = gameSkillController.GetComponent<GameSkillController>();
             script.setDirection(direction);
            
             Shoot(prefabBulletSmall, direction);
