@@ -2,33 +2,56 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WhipAttack : MonoBehaviour
+namespace MyNamespace
 {
-    const float LifeSeconds = 2;
-    Timer deathTimer;
-    // Start is called before the first frame update
-    void Start()
+    public class WhipAttack : MonoBehaviour
     {
-        deathTimer = gameObject.AddComponent<Timer>();
-        deathTimer.Duration = LifeSeconds;
-        deathTimer.Run();
-    }
+        const float LifeSeconds = 2;
 
-    // Update is called once per frame
-    void Update()
-    {
-        gameObject.transform.localScale += gameObject.transform.localScale * Time.deltaTime;
-        if (deathTimer.Finished)
+        Timer deathTimer;
+        private int _damage;
+
+        public int Damage
         {
-            Destroy(gameObject);
+            get => _damage;
+            set => _damage = value;
         }
-    }
-    public void ApplyForce(Vector2 forceDirection)
-    {
-        const float forceMagnitude = 3;
-        GetComponent<Rigidbody2D>().AddForce(
-            forceMagnitude * forceDirection,
-            ForceMode2D.Impulse);
-        
+
+        // Start is called before the first frame update
+        void Start()
+        {
+            deathTimer = gameObject.AddComponent<Timer>();
+            deathTimer.Duration = LifeSeconds;
+            deathTimer.Run();
+            _damage = 20;
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+
+            gameObject.transform.localScale += gameObject.transform.localScale * Time.deltaTime;                    
+            if (deathTimer.Finished)
+            {
+                Destroy(gameObject);
+            }
+        }
+
+        public void ApplyForce(Vector2 forceDirection)
+        {
+            const float forceMagnitude = 3;
+            GetComponent<Rigidbody2D>().AddForce(
+                forceMagnitude * forceDirection,
+                ForceMode2D.Impulse);
+
+        }
+        private void OnCollisionEnter2D(Collision2D col)
+        {
+            if (col.gameObject.CompareTag("Minion"))
+            {
+                Destroy(gameObject);
+                Debug.Log("BEEMMMM!");
+            }
+        }
     }
 }

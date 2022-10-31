@@ -1,68 +1,72 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class MainCharacterSkill : MonoBehaviour
+namespace Script.Skill
 {
-   
-    Vector2 thrustDirection = new Vector2(0, 1); 
-    
-    [SerializeField]
-    GameObject prefabBulletSmall;
-    [SerializeField]
-    GameObject prefabWhipAttack;
-    // Start is called before the first frame update
-    void Start()
+    public class MainCharacterSkill : MonoBehaviour
     {
-        
-    
-}
+        public Transform player;
+       
 
-    // Update is called once per frame
-    void Update()
-    {
-       
-       
-       
-        if (Input.GetKeyDown(KeyCode.Space))
+        [SerializeField] private GameObject prefabBulletSmall;
+
+        [SerializeField] private GameObject prefabWhipAttack;
+
+        const float smallBulletLifeSeconds = 0.2f;
+        Timer deathTimer;
+        [SerializeField]
+        GameObject gameSkillController;
+
+        // Start is called before the first frame update
+        void Start()
         {
-            GameObject bullet = Instantiate(prefabBulletSmall, transform.position, Quaternion.identity);
-           /* SmallBullet script = bullet.GetComponent<SmallBullet>();
-            script.ApplyForce(thrustDirection);*/
-          Rigidbody2D  bulletRb = bullet.GetComponent<Rigidbody2D>();
-
-            var dir = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized;
-
-            if (dir.magnitude > 0)
-            {
-                bulletRb.velocity = dir * 3f;
-            }
-            else
-            {
-                bulletRb.velocity = transform.right * 3f;
-            }
-        }
-        if (Input.GetKeyDown(KeyCode.RightControl))
-        {
-            GameObject whip = Instantiate(prefabWhipAttack, transform.position, Quaternion.identity);
-           /* WhipAttack scriptWhip = whip.GetComponent<WhipAttack>();
-            scriptWhip.ApplyForce(thrustDirection);*/
-            Rigidbody2D whipRb = whip.GetComponent<Rigidbody2D>();
-
-            var dir = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized;
-
-            if (dir.magnitude > 0)
-            {
-                whipRb.velocity = dir * 3f;
-            }
-            else
-            {
-                whipRb.velocity = transform.right * 3f;
-            }
-
+            deathTimer = gameObject.AddComponent<Timer>();
+            deathTimer.Duration = smallBulletLifeSeconds;
+            deathTimer.Run();       
+       
         }
 
+        // Update is called once per frame
+        void Update()
+        {
+            float angle = Random.Range(0, Mathf.PI * 2);
+            Vector2 direction = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
+            /* Vector2 direction = FindClosestCrep();*/
+
+            GameSkillController script = gameSkillController.GetComponent<GameSkillController>();
+            script.setDirection(direction);
+           
+            Shoot(prefabBulletSmall, direction);
+        }
+        void Shoot(GameObject bullet, Vector2 direction)
+        {
+            if (deathTimer.Finished)
+            {
+                GameObject Bullet = Instantiate(bullet, player.position, Quaternion.identity) as GameObject;
+                Bullet.GetComponent<Rigidbody2D>().AddForce(direction * 5f, ForceMode2D.Impulse);
+                /*Bullet.transform.position= Vector2.MoveTowards(transform.position, crep.transform.position, Time.deltaTime * 3f);*/
+                deathTimer.Duration = smallBulletLifeSeconds;
+                deathTimer.Run();
+            }
+          
+            
+             
+            
+        }
+        /*Vector2 FindClosestCrep()
+        {
+            float distanceClosest = Mathf.Infinity;
+            GameObject closestCrep = null;
+            GameObject[] allCrep = GameObject.FindGameObjectsWithTag("Minion");
+            foreach (GameObject currentCrep in allCrep)
+            {
+                float distance = (currentCrep.transform.position - this.transform.position).sqrMagnitude;
+                if (distance < distanceClosest)
+                {
+                    distanceClosest = distance;
+                    closestCrep = currentCrep;
+                }
+            }
+            return closestCrep.transform.position;
+        }*/
     }
-  
 }
