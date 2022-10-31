@@ -455,6 +455,7 @@ GameObject:
   - component: {fileID: 326063499}
   - component: {fileID: 326063500}
   - component: {fileID: 326063501}
+  - component: {fileID: 326063502}
   m_Layer: 0
   m_Name: PlayerMain
   m_TagString: Player
@@ -621,6 +622,21 @@ MonoBehaviour:
   prefabBulletSmall: {fileID: 976023429854472430, guid: 413708ea8271fbf42a7c5fcccee39fe9, type: 3}
   prefabWhipAttack: {fileID: 3925181622459694659, guid: d5a62323e55de4641b898c92f35817a2, type: 3}
   gameSkillController: {fileID: 1318072849}
+--- !u!114 &326063502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 326063493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d7038b3be58b9842b1a4aa391799e97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  healthBar: {fileID: 795128418}
 --- !u!1001 &414606170
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5026,7 +5042,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -431.3, y: 97}
+  m_AnchoredPosition: {x: -431.30005, y: 97}
   m_SizeDelta: {x: 157.8999, y: 121.64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1277243714
