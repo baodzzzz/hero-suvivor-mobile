@@ -630,7 +630,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 326063494}
-  prefabBulletSmall: {fileID: 976023429854472430, guid: 413708ea8271fbf42a7c5fcccee39fe9, type: 3}
+  prefabBulletSmall: {fileID: 5901887723769114222, guid: 6a6e0fab191975e418f1a5f24961e4e3, type: 3}
   prefabWhipAttack: {fileID: 3925181622459694659, guid: d5a62323e55de4641b898c92f35817a2, type: 3}
   gameSkillController: {fileID: 1318072849}
 --- !u!114 &326063502
@@ -685,8 +685,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -429, y: 257}
-  m_SizeDelta: {x: 153.30005, y: 128.59998}
+  m_AnchoredPosition: {x: -449.17004, y: 262.69}
+  m_SizeDelta: {x: 122.16, y: 117.23}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &425308464
 MonoBehaviour:
@@ -731,7 +731,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 425308465}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1318072851}
+        m_TargetAssemblyTypeName: Script.Controller.GameSkillController, Assembly-CSharp
+        m_MethodName: ActiveSkillW
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &425308465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -752,7 +764,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2bccd332882fcd14b9e4c377e432c587, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4867db53aa592a64a851c36645423699, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -867,6 +879,7 @@ GameObject:
   - component: {fileID: 519420029}
   - component: {fileID: 519420033}
   - component: {fileID: 519420034}
+  - component: {fileID: 519420035}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -991,6 +1004,19 @@ MonoBehaviour:
   prefabsMinion: {fileID: 5905014330063088224, guid: 2c9177f03e4897d45bc03b9486277a59, type: 3}
   prefabsMover: {fileID: 2882777437185691955, guid: 013f012762db97a4b97fd1972a228b23, type: 3}
   prefabsPuzzler: {fileID: 3901649726890690159, guid: 4503225ae3080604eb81608a11685eba, type: 3}
+--- !u!114 &519420035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c86c44a99eb59e948afec2b5a16424b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabsStone: {fileID: 7993839895506335223, guid: a1a18a705281b03488fcebab90302cf3, type: 3}
 --- !u!1 &621844307
 GameObject:
   m_ObjectHideFlags: 0
@@ -4174,8 +4200,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 39.96}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -334, y: 427}
-  m_SizeDelta: {x: 138.30005, y: 136.1}
+  m_AnchoredPosition: {x: -361.95996, y: 434.39}
+  m_SizeDelta: {x: 125.38, y: 122.89}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &735341810
 MonoBehaviour:
@@ -4220,7 +4246,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 735341811}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1318072851}
+        m_TargetAssemblyTypeName: Script.Controller.GameSkillController, Assembly-CSharp
+        m_MethodName: ActiveSkillE
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &735341811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4241,7 +4279,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1458237dbb3c6d54f8fe9d39c0175d00, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7e051d18bae47984299ed30a69f8bf1e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4917,8 +4955,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -431.30005, y: 97}
-  m_SizeDelta: {x: 157.8999, y: 121.64}
+  m_AnchoredPosition: {x: -449.17004, y: 96.19}
+  m_SizeDelta: {x: 122.16, y: 123.26}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1277243714
 MonoBehaviour:
@@ -4965,8 +5003,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1318072851}
-        m_TargetAssemblyTypeName: GameSkillController, Assembly-CSharp
-        m_MethodName: ActiveSkill
+        m_TargetAssemblyTypeName: Script.Controller.GameSkillController, Assembly-CSharp
+        m_MethodName: ActiveSkillQ
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4996,7 +5034,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 51dcbb3542a768b49ac5942bd2a0c8bb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fccc7156f5a20d847b6f18880c73d76d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5059,7 +5097,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 326063494}
-  prefabWhipAttack: {fileID: 3925181622459694659, guid: d5a62323e55de4641b898c92f35817a2, type: 3}
+  prefabWhipAttack: {fileID: 5252893480464543748, guid: 9c3a96932179da54aab98a9188c07c0a, type: 3}
+  prefabThienThach: {fileID: 4692255866693457307, guid: f4622b5d21bfba740a866ea078a5f15a, type: 3}
+  prefabPhaoHoa: {fileID: 4906376967515732081, guid: a1fdd605158b2984ca0afad6ad0c2588, type: 3}
 --- !u!1 &1338027198
 GameObject:
   m_ObjectHideFlags: 0
@@ -19816,7 +19856,7 @@ Transform:
   - {fileID: 264826662}
   - {fileID: 467884815}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1870013482
 MonoBehaviour:
@@ -19835,6 +19875,111 @@ MonoBehaviour:
   m_BoundingShape2D: {fileID: 1529789261}
   m_ConfineScreenEdges: 1
   m_Damping: 0
+--- !u!1 &1903250338
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1903250340}
+  - component: {fileID: 1903250339}
+  - component: {fileID: 1903250341}
+  m_Layer: 0
+  m_Name: hotSkill
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &1903250339
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1903250338}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 1191058061, guid: 2bdade3a555d3eb4b81c7d7238f7ab6c, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.83, y: 0.99}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &1903250340
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1903250338}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7.264728, y: -2.2226324, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1903250341
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1903250338}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 62344efbe07a56246a9d7b5b74acbe42, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2018191035
 GameObject:
   m_ObjectHideFlags: 0
@@ -19882,7 +20027,7 @@ Transform:
   - {fileID: 2071984114}
   - {fileID: 2145557137}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1839735485 &2018191038
 Tilemap:
@@ -22349,7 +22494,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 9077839226865858064, guid: 8cb32c9861b782343b4e24aee60ec274, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9077839226865858064, guid: 8cb32c9861b782343b4e24aee60ec274, type: 3}
       propertyPath: m_LocalPosition.x
