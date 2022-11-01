@@ -54,14 +54,14 @@ namespace Script.Minions
             var miLocation = RandomAxis();
             var minion = Instantiate(prefabsMinion, _spawnPosition, Quaternion.identity);
             minion.transform.position = _camera.ScreenToWorldPoint(miLocation);
-            var mLocation = RandomAxis();
-            var pLocation = RandomAxis();
-
-            var mover = Instantiate(prefabsMover, _spawnPosition, Quaternion.identity);
-            var puzzler = Instantiate(prefabsPuzzler, _spawnPosition, Quaternion.identity);
-
-            mover.transform.position = _camera.ScreenToWorldPoint(mLocation);
-            puzzler.transform.position = _camera.ScreenToWorldPoint(pLocation);
+            // var mLocation = RandomAxis();
+            // var pLocation = RandomAxis();
+            //
+            // var mover = Instantiate(prefabsMover, _spawnPosition, Quaternion.identity);
+            // var puzzler = Instantiate(prefabsPuzzler, _spawnPosition, Quaternion.identity);
+            //
+            // mover.transform.position = _camera.ScreenToWorldPoint(mLocation);
+            // puzzler.transform.position = _camera.ScreenToWorldPoint(pLocation);
         }
 
         private Vector3 RandomAxis()

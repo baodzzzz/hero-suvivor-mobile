@@ -1,40 +1,41 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHealth : MonoBehaviour
+namespace Script.Controller
 {
-    public float maxHealth =100;
-    public float currentHealth;
-    public HealthBar healthBar;
-    // Start is called before the first frame update
-    void Start()
+    public class PlayerHealth : MonoBehaviour
     {
-        currentHealth = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
-    }
+        public float maxHealth = 100;
+        public float currentHealth;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if(currentHealth== 0)
+        public HealthBar healthBar;
+
+        // Start is called before the first frame update
+        void Start()
         {
-            Destroy(gameObject);
+            currentHealth = maxHealth;
+            healthBar.SetMaxHealth(maxHealth);
         }
-    }
-    public void TakeDamage(float damage)
-    {
-        currentHealth -= damage;
-        healthBar.SetHealth(currentHealth);
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Minion"))
+
+        // Update is called once per frame
+        void Update()
         {
-            TakeDamage(5);
-            Debug.Log("-5!");
+            if (currentHealth <= 0)
+            {
+                Destroy(gameObject);
+            }
         }
-       /* if (collision.gameObject.CompareTag("Mover"))
+
+        public void TakeDamage(float damage)
+        {
+            currentHealth -= damage;
+            healthBar.SetHealth(currentHealth);
+        }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (!collision.gameObject.CompareTag("Minion")) return;
+            TakeDamage(1);
+            /* if (collision.gameObject.CompareTag("Mover"))
         {
             TakeDamage(5);
             Debug.Log("-5!");
@@ -44,11 +45,6 @@ public class PlayerHealth : MonoBehaviour
             TakeDamage(10);
             Debug.Log("-10!");
         }*/
+        }
     }
-    
-      
-    
-    }
-    
-        
-
+}

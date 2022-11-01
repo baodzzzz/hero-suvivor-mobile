@@ -22,8 +22,8 @@ namespace Script.Minions
             _speed = 0.5f;
             _player = GameObject.FindGameObjectWithTag("Player");
             _hp = 10;
-            _smallBullet = gameObject.GetComponent<SmallBullet>();
-            _whipAttack = gameObject.GetComponent<WhipAttack>();
+            _smallBullet = GameObject.FindGameObjectWithTag("SmallBullet").GetComponent<SmallBullet>();
+            _whipAttack = GameObject.FindGameObjectWithTag("WhipAttack").GetComponent<WhipAttack>();
             _minion = gameObject.GetComponent<SpriteRenderer>();
         }
 
@@ -39,12 +39,13 @@ namespace Script.Minions
 
         private void OnTriggerEnter2D(Collider2D col)
         {
-            if (col.gameObject.CompareTag(_smallBullet.tag))
+            if (col.gameObject.CompareTag("SmallBullet"))
             {
                 TakeDamage(_smallBullet.Damage);
+                Debug.Log(_smallBullet.Damage);
             }
             
-            if (col.gameObject.CompareTag(_whipAttack.tag))
+            if (col.gameObject.CompareTag("WhipAttack"))
             {
                 TakeDamage(_whipAttack.Damage);
             }

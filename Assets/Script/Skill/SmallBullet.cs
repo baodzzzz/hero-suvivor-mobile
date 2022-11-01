@@ -52,17 +52,13 @@ namespace Script.Skill
                 ForceMode2D.Impulse);
         }
 
-        private void OnCollisionEnter2D(Collision2D col)
-        {
-            if (col.gameObject.CompareTag("Minion"))
-            {
-                Destroy(gameObject);
-            }
-            if (col.gameObject.CompareTag("Player"))
-            {
-                Destroy(gameObject);
-                Debug.Log("BEEMMMM!");
-            }
-        }
+        // private void OnCollisionEnter2D(Collision2D col)
+        // {
+        //     if (col.gameObject.CompareTag("Minion"))
+        //     {
+        //         Destroy(gameObject);
+        //     }
+        //     
+        // }
     }
 }
