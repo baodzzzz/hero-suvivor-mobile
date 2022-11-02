@@ -9,6 +9,7 @@ TagManager:
   - WhipAttack
   - InputControl
   - StoneAttack
+  - Boss
   layers:
   - Default
   - TransparentFX

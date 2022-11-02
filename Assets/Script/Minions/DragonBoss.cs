@@ -1,20 +1,26 @@
 using MyNamespace;
 using Script.Skill;
+using UnityEditor.Animations;
 using UnityEngine;
 
 namespace Script.Minions
 {
-    public class Minion : MonoBehaviour
+    public class DragonBoss : MonoBehaviour
     {
+        [SerializeField] private GameObject prefabFireBall;
+        
         private float _speed;
-
-        private GameObject _player;
         private int _hp;
+        private GameObject _player;
         private SmallBullet _smallBullet;
         private WhipAttack _whipAttack;
         private SpriteRenderer _minionSpr;
         private Vector3 _minionPosition, _playerPosition;
-        
+        private Timer _skillDownDuration, _skillDownCooldown, _skillMountDuration, _skillMountCooldown;
+        private Animator _animator;
+        private RuntimeAnimatorController _animatorController;
+        private static readonly int IsSkillDown = Animator.StringToHash("isSkillDown");
+
         public int HP
         {
             get => _hp;
@@ -24,17 +30,31 @@ namespace Script.Minions
         // Start is called before the first frame update
         private void Start()
         {
-            _speed = 0.5f;
+            _animator = gameObject.GetComponent<Animator>();
+            _skillDownDuration = gameObject.AddComponent<Timer>();
+            _skillDownCooldown = gameObject.AddComponent<Timer>();
+            _skillMountDuration = gameObject.AddComponent<Timer>();
+            _skillMountCooldown = gameObject.AddComponent<Timer>();
+            _speed = 0.3f;
             _player = GameObject.FindGameObjectWithTag("Player");
-            _hp = 10;
+            _hp = 200;
             _minionSpr = gameObject.GetComponent<SpriteRenderer>();
             _smallBullet = GameObject.FindGameObjectWithTag("SmallBullet").GetComponent<SmallBullet>();
             // _whipAttack = GameObject.FindGameObjectWithTag("WhipAttack").GetComponent<WhipAttack>();
+            _skillDownDuration.Duration = 5;
+            _skillDownDuration.Run();
+            // _skillMountDuration.Duration = 3;
+            // _skillMountDuration.Run();
         }
 
         // Update is called once per frame
         private void Update()
         {
+            if (_skillDownDuration.Finished)
+            {
+                _animator.SetBool(IsSkillDown, true);
+            }
+            
             _minionPosition = transform.position;
             _playerPosition = _player.transform.position;
             _minionSpr.flipX = _minionPosition.x > _playerPosition.x;

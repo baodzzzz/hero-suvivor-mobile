@@ -30,9 +30,9 @@ public class FireSkill : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    private void OnTriggerEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D col)
     {
-        if (collision.gameObject.CompareTag("Minion"))
+        if (col.gameObject.CompareTag("Minion"))
         {
 
             Destroy(gameObject);

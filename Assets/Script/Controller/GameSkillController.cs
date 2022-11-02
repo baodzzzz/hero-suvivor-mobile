@@ -8,7 +8,7 @@ namespace Script.Controller
         [SerializeField] GameObject prefabWhipAttack;
         [SerializeField] GameObject prefabThienThach;
         [SerializeField] GameObject prefabPhaoHoa;
-        private  float LifeSeconds = 0.1f;
+        private float LifeSeconds = 0.1f;
         private Timer deathTimerQ;
         private Timer deathTimerW;
         private Timer deathTimerE;
@@ -26,7 +26,7 @@ namespace Script.Controller
         void Start()
         {
             minSpawnX = SpawnBorderSize;
-            maxSpawnX =Screen.width *2/3 - SpawnBorderSize;
+            maxSpawnX = Screen.width * 2 / 3 - SpawnBorderSize;
             minSpawnY = SpawnBorderSize;
             maxSpawnY = Screen.height - SpawnBorderSize;
 
@@ -60,7 +60,6 @@ namespace Script.Controller
                 prefabWhipAttack.transform.position =
                     Vector2.MoveTowards(transform.position, crep.transform.position, Time.deltaTime * 3f);
             }*/
-
         }
 
 
@@ -72,30 +71,33 @@ namespace Script.Controller
             {
                 var Bullet = Instantiate(prefabWhipAttack, player.position, Quaternion.identity) as GameObject;
                 Bullet.GetComponent<Rigidbody2D>().AddForce(direction * 4f, ForceMode2D.Impulse);
-                deathTimerQ.Duration =1; // need change
+                deathTimerQ.Duration = 1; // need change
                 deathTimerQ.Run();
             }
         }
+
         public void ActiveSkillW()
         {
             Vector3 location = new Vector3(Random.Range(minSpawnX, maxSpawnX),
-         Random.Range(minSpawnY, maxSpawnY),
-         -Camera.main.transform.position.z);
+                Random.Range(minSpawnY, maxSpawnY),
+                -Camera.main.transform.position.z);
             Vector3 worldLocation = Camera.main.ScreenToWorldPoint(location);
             if (deathTimerW.Finished)
-            {             
-                GameObject thienthach = Instantiate(prefabThienThach, transform.position, Quaternion.identity) as GameObject;
+            {
+                GameObject thienthach =
+                    Instantiate(prefabThienThach, transform.position, Quaternion.identity) as GameObject;
                 thienthach.transform.position = worldLocation;
-               /* var distance = Vector3.Distance(crep.transform.position, transform.position);
-                if (distance < 10f)
-                {
-                    prefabThienThach.transform.position =
-                        Vector2.MoveTowards(transform.position, crep.transform.position, Time.deltaTime * 3f);
-                }*/
+                /* var distance = Vector3.Distance(crep.transform.position, transform.position);
+                 if (distance < 10f)
+                 {
+                     prefabThienThach.transform.position =
+                         Vector2.MoveTowards(transform.position, crep.transform.position, Time.deltaTime * 3f);
+                 }*/
                 deathTimerW.Duration = 2; // need change
                 deathTimerW.Run();
             }
         }
+
         public void ActiveSkillE()
         {
             var angle = Random.Range(0, Mathf.PI * 2);

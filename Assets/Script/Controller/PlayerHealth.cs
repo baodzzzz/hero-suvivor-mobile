@@ -33,8 +33,15 @@ namespace Script.Controller
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (!collision.gameObject.CompareTag("Minion")) return;
-            TakeDamage(1);
+            if (collision.gameObject.CompareTag("Minion"))
+            {
+                TakeDamage(1);
+            }
+
+            if (collision.gameObject.CompareTag("Boss"))
+            {
+                TakeDamage(5);
+            }
             /* if (collision.gameObject.CompareTag("Mover"))
         {
             TakeDamage(5);

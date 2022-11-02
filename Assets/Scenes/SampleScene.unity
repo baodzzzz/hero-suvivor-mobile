@@ -1004,6 +1004,7 @@ MonoBehaviour:
   prefabsMinion: {fileID: 5905014330063088224, guid: 2c9177f03e4897d45bc03b9486277a59, type: 3}
   prefabsMover: {fileID: 2882777437185691955, guid: 013f012762db97a4b97fd1972a228b23, type: 3}
   prefabsPuzzler: {fileID: 3901649726890690159, guid: 4503225ae3080604eb81608a11685eba, type: 3}
+  prefabDragonBoss: {fileID: 3679685889914624175, guid: a07e1b0b3eb539842be3c6d1e20da075, type: 3}
 --- !u!114 &519420035
 MonoBehaviour:
   m_ObjectHideFlags: 0
