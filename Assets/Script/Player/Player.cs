@@ -7,6 +7,7 @@ namespace Script.Player
         private Rigidbody2D rb;
         private float moveH, moveV;
         public float BaseSpeed { get; set; } = 5;
+        public Animator animator;
         public float SmoothTime { get; set; } = 0.04f;
         private Vector3 moveDir;
         private Vector3 velocitySmoothing;
