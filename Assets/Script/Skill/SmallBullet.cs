@@ -44,13 +44,13 @@ namespace Script.Skill
 
         }
 
-        public void ApplyForce(Vector2 forceDirection)
+     /*   public void ApplyForce(Vector2 forceDirection)
         {
             const float forceMagnitude = 3;
             GetComponent<Rigidbody2D>().AddForce(
                 forceMagnitude * forceDirection,
                 ForceMode2D.Impulse);
-        }
+        }*/
 
 
         private void OnTriggerEnter2D(Collider2D col)
