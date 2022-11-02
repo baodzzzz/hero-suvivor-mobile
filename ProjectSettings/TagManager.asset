@@ -10,6 +10,7 @@ TagManager:
   - InputControl
   - StoneAttack
   - Boss
+  - BossSkill
   layers:
   - Default
   - TransparentFX

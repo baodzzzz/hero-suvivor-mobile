@@ -8,7 +8,6 @@ namespace Script.Controller
         [SerializeField] GameObject prefabWhipAttack;
         [SerializeField] GameObject prefabThienThach;
         [SerializeField] GameObject prefabPhaoHoa;
-        private float LifeSeconds = 0.1f;
         private Timer deathTimerQ;
         private Timer deathTimerW;
         private Timer deathTimerE;
