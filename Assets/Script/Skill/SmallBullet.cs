@@ -44,24 +44,20 @@ namespace Script.Skill
 
         }
 
-        public void ApplyForce(Vector2 forceDirection)
+     /*   public void ApplyForce(Vector2 forceDirection)
         {
             const float forceMagnitude = 3;
             GetComponent<Rigidbody2D>().AddForce(
                 forceMagnitude * forceDirection,
                 ForceMode2D.Impulse);
-        }
+        }*/
 
-        private void OnCollisionEnter2D(Collision2D col)
+
+        private void OnTriggerEnter2D(Collider2D col)
         {
             if (col.gameObject.CompareTag("Minion"))
             {
                 Destroy(gameObject);
-            }
-            if (col.gameObject.CompareTag("Player"))
-            {
-                Destroy(gameObject);
-                Debug.Log("BEEMMMM!");
             }
         }
     }

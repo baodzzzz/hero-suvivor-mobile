@@ -8,6 +8,8 @@ TagManager:
   - SmallBullet
   - WhipAttack
   - InputControl
+  - StoneAttack
+  - Boss
   layers:
   - Default
   - TransparentFX

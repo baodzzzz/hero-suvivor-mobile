@@ -12,7 +12,7 @@ namespace Script.Skill
 
         [SerializeField] private GameObject prefabWhipAttack;
 
-        const float smallBulletLifeSeconds = 0.2f;
+        const float smallBulletLifeSeconds = 0.5f;
         Timer deathTimer;
         [SerializeField]
         GameObject gameSkillController;
