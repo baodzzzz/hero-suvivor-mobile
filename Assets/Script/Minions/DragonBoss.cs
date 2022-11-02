@@ -8,6 +8,7 @@ namespace Script.Minions
     public class DragonBoss : MonoBehaviour
     {
         [SerializeField] private GameObject prefabFireBall;
+        private float _bulletSpeed;
         
         private float _speed;
         private int _hp;
@@ -30,6 +31,7 @@ namespace Script.Minions
         // Start is called before the first frame update
         private void Start()
         {
+            _bulletSpeed = 5f;
             _animator = gameObject.GetComponent<Animator>();
             _skillDownDuration = gameObject.AddComponent<Timer>();
             _skillDownCooldown = gameObject.AddComponent<Timer>();
@@ -41,18 +43,19 @@ namespace Script.Minions
             _minionSpr = gameObject.GetComponent<SpriteRenderer>();
             _smallBullet = GameObject.FindGameObjectWithTag("SmallBullet").GetComponent<SmallBullet>();
             // _whipAttack = GameObject.FindGameObjectWithTag("WhipAttack").GetComponent<WhipAttack>();
-            _skillDownDuration.Duration = 5;
-            _skillDownDuration.Run();
-            // _skillMountDuration.Duration = 3;
-            // _skillMountDuration.Run();
+            // _skillDownDuration.Duration = 5;
+            // _skillDownDuration.Run();
+            _skillMountDuration.Duration = 5;
+            _skillMountDuration.Run();
         }
 
         // Update is called once per frame
         private void Update()
         {
-            if (_skillDownDuration.Finished)
+            if (_skillMountDuration.Finished)
             {
-                _animator.SetBool(IsSkillDown, true);
+                var fireBall = Instantiate(prefabFireBall, transform.position, Quaternion.identity);
+                
             }
             
             _minionPosition = transform.position;
