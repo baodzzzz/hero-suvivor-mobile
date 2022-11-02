@@ -54,14 +54,14 @@ namespace Script.Minions
         {
             _minionPosition = transform.position;
             _playerPosition = _player.transform.position;
+            _minionSpr.flipX = _minionPosition.x > _playerPosition.x;
             if (_skillMountDuration.Finished)
             {
                 Instantiate(prefabFireBall, _minionPosition, Quaternion.identity);
                 _skillMountDuration.Duration = 2;
                 _skillMountDuration.Run();
             }
-
-            _minionSpr.flipX = _minionPosition.x > _playerPosition.x;
+            
             transform.position =
                 Vector2.MoveTowards(transform.position, _playerPosition, Time.deltaTime * _speed);
         }

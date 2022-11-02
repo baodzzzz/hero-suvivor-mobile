@@ -8,6 +8,7 @@ TagManager:
   - InputControl
   - StoneAttack
   - Boss
+  - BossSkill
   - BaseAttack
   - thunderbolt
   - SkillQ
