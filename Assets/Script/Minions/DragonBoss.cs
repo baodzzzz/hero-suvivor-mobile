@@ -8,8 +8,7 @@ namespace Script.Minions
     public class DragonBoss : MonoBehaviour
     {
         [SerializeField] private GameObject prefabFireBall;
-        private float _bulletSpeed;
-        
+
         private float _speed;
         private int _hp;
         private GameObject _player;
@@ -21,6 +20,7 @@ namespace Script.Minions
         private Animator _animator;
         private RuntimeAnimatorController _animatorController;
         private static readonly int IsSkillDown = Animator.StringToHash("isSkillDown");
+        private Camera _camera;
 
         public int HP
         {
@@ -31,7 +31,7 @@ namespace Script.Minions
         // Start is called before the first frame update
         private void Start()
         {
-            _bulletSpeed = 5f;
+            _camera = Camera.main;
             _animator = gameObject.GetComponent<Animator>();
             _skillDownDuration = gameObject.AddComponent<Timer>();
             _skillDownCooldown = gameObject.AddComponent<Timer>();
@@ -45,24 +45,25 @@ namespace Script.Minions
             // _whipAttack = GameObject.FindGameObjectWithTag("WhipAttack").GetComponent<WhipAttack>();
             // _skillDownDuration.Duration = 5;
             // _skillDownDuration.Run();
-            _skillMountDuration.Duration = 5;
+            _skillMountDuration.Duration = 3;
             _skillMountDuration.Run();
         }
 
         // Update is called once per frame
         private void Update()
         {
-            if (_skillMountDuration.Finished)
-            {
-                var fireBall = Instantiate(prefabFireBall, transform.position, Quaternion.identity);
-                
-            }
-            
             _minionPosition = transform.position;
             _playerPosition = _player.transform.position;
+            if (_skillMountDuration.Finished)
+            {
+                Instantiate(prefabFireBall, _minionPosition, Quaternion.identity);
+                _skillMountDuration.Duration = 2;
+                _skillMountDuration.Run();
+            }
+
             _minionSpr.flipX = _minionPosition.x > _playerPosition.x;
             transform.position =
-                Vector2.MoveTowards(_minionPosition, _playerPosition, Time.deltaTime * _speed);
+                Vector2.MoveTowards(transform.position, _playerPosition, Time.deltaTime * _speed);
         }
 
         private void OnTriggerEnter2D(Collider2D col)
