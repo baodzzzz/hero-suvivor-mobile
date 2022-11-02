@@ -14,7 +14,7 @@ public class StoneSkill : MonoBehaviour
         var angle = Random.Range(0, Mathf.PI * 2);
         var direction = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
         var magnitude = 2f;
-        GetComponent<Rigidbody2D>().AddForce(direction * magnitude, ForceMode2D.Impulse);
+      
         _crep = GameObject.FindGameObjectWithTag("Minion");
     }
 
