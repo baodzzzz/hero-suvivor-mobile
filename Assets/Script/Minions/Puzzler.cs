@@ -18,6 +18,8 @@ namespace Script.Minions
         private int _hp;
         private SmallBullet _smallBullet;
         private WhipAttack _whipAttack;
+        private SpriteRenderer _minionSpr;
+        private Vector3 _minionPosition, _playerPosition;
 
         // Start is called before the first frame update
         private void Start()
@@ -32,13 +34,17 @@ namespace Script.Minions
                     Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height,
                         Camera.main.transform.position.z));
             _hp = 50;
-            _smallBullet = gameObject.GetComponent<SmallBullet>();
-            _whipAttack = gameObject.GetComponent<WhipAttack>();
+            _minionSpr = gameObject.GetComponent<SpriteRenderer>();
+            _smallBullet = GameObject.FindGameObjectWithTag("SmallBullet").GetComponent<SmallBullet>();
+            // _whipAttack = GameObject.FindGameObjectWithTag("WhipAttack").GetComponent<WhipAttack>();
         }
 
         // Update is called once per frame
         private void Update()
         {
+            _minionPosition = transform.position;
+            _playerPosition = _player.transform.position;
+            _minionSpr.flipX = _minionPosition.x > _playerPosition.x;
             if (_counter >= 5)
             {
                 _speed = 3f;
@@ -60,14 +66,14 @@ namespace Script.Minions
         
         private void OnTriggerEnter2D(Collider2D col)
         {
-            if (col.gameObject.CompareTag(_smallBullet.tag))
+            if (col.gameObject.CompareTag("SmallBullet"))
             {
                 TakeDamage(_smallBullet.Damage);
             }
 
-            if (col.gameObject.CompareTag(_whipAttack.tag))
+            if (col.gameObject.CompareTag("WhipAttack"))
             {
-                TakeDamage(_whipAttack.Damage);
+                // TakeDamage(_whipAttack.Damage);
             }
         }
         
