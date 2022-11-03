@@ -21,7 +21,7 @@ namespace Script.Minions
         private RuntimeAnimatorController _animatorController;
         private static readonly int IsSkillDown = Animator.StringToHash("isSkillDown");
         private Camera _camera;
-
+        private GameObject exp;
         public int HP
         {
             get => _hp;
@@ -31,6 +31,7 @@ namespace Script.Minions
         // Start is called before the first frame update
         private void Start()
         {
+            exp = GameObject.FindGameObjectWithTag("Exp");
             _camera = Camera.main;
             _animator = gameObject.GetComponent<Animator>();
             _skillDownDuration = gameObject.AddComponent<Timer>();
@@ -84,6 +85,8 @@ namespace Script.Minions
             _hp -= damageAmount;
             if (_hp <= 0)
             {
+                GameObject expBoss= Instantiate(exp, transform.position, Quaternion.identity);
+                expBoss.transform.localScale *= 2f;
                 Destroy(gameObject);
             }
         }
