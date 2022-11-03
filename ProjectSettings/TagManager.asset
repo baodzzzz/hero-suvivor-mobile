@@ -5,12 +5,17 @@ TagManager:
   serializedVersion: 2
   tags:
   - Minion
-  - SmallBullet
-  - WhipAttack
   - InputControl
   - StoneAttack
   - Boss
   - BossSkill
+  - BaseAttack
+  - thunderbolt
+  - SkillQ
+  - SkillW
+  - SkillR
+  - SkillE
+  - SkillUtil
   layers:
   - Default
   - TransparentFX
