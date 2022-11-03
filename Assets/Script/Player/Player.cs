@@ -7,17 +7,20 @@ namespace Script.Player
     {
         private Rigidbody2D rb;
         private float moveH, moveV;
-        public float BaseSpeed { get; set; } = 5;
+        public float BaseSpeed { get; set; } = 3;
         public Animator animator;
         public float SmoothTime { get; set; } = 0.04f;
         private Vector3 moveDir;
         private Vector3 velocitySmoothing;
         private int _hp;
-    
+       
         public FixedJoystick joystick;
+
+       
 
         void Start()
         {
+           
             rb = GetComponent<Rigidbody2D>();
             _hp = 50;
         }
@@ -25,6 +28,8 @@ namespace Script.Player
         void Update()
         {
             MovePlayer();
+           
+
         }
         private void MovePlayer()
         {
@@ -42,14 +47,6 @@ namespace Script.Player
                 }
         }
 
-        private void OnTriggerEnter2D(Collider2D col)
-        {
-            if (!col.gameObject.CompareTag("Minion")) return;
-            _hp -= 1;
-            if (_hp <= 0)
-            {
-                Debug.Log("You was died!");                
-            }
-        }
+      
     }
 }

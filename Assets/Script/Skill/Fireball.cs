@@ -23,7 +23,7 @@ namespace Script.Skill
         {
             _fireballPos = transform.position;
             _playerPos = _player.transform.position;
-            transform.Translate(_playerPos);
+            transform.Translate(_playerPos*Time.deltaTime);
         }
 
         private void OnTriggerEnter2D(Collider2D col)

@@ -10,7 +10,7 @@ namespace Script.Minions
         private float _speed;
         private GameObject _player;
         private int _hp;
-        
+        private GameObject exp;
         private SmallBullet _smallBullet;
         private WhipAttack _whipAttack;
         private SpriteRenderer _minionSpr;
@@ -21,6 +21,7 @@ namespace Script.Minions
         {
             _speed = 2f;
             _hp = 30;
+            exp = GameObject.FindGameObjectWithTag("Exp");
             _player = GameObject.FindGameObjectWithTag("Player");
             _minionSpr = gameObject.GetComponent<SpriteRenderer>();
             _smallBullet = GameObject.FindGameObjectWithTag("BaseAttack").GetComponent<SmallBullet>();
@@ -55,6 +56,7 @@ namespace Script.Minions
             _hp -= damageAmount;
             if (_hp <= 0)
             {
+                Instantiate(exp, transform.position, Quaternion.identity);
                 Destroy(gameObject);
             }
         }

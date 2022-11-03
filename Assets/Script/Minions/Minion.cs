@@ -7,7 +7,7 @@ namespace Script.Minions
     public class Minion : MonoBehaviour
     {
         private float _speed;
-
+        [SerializeField] GameObject exp;
         private GameObject _player;
         private int _hp;
         private SmallBullet _smallBullet;
@@ -60,7 +60,9 @@ namespace Script.Minions
             _hp -= damageAmount;
             if (_hp <= 0)
             {
+                Instantiate(exp,transform.position, Quaternion.identity);
                 Destroy(gameObject);
+               
             }
         }
     }
