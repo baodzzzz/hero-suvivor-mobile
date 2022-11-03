@@ -15,7 +15,7 @@ public class FireSkill : MonoBehaviour
         deathTimer.Duration = LifeSeconds;
         deathTimer.Run();
 
-        Vector2 direction = new Vector2(Mathf.Cos(-Mathf.PI * 0.2f), Mathf.Sin(-Mathf.PI * 0.2f));
+        Vector2 direction = new Vector2(Mathf.Cos(-Mathf.PI * 0.2f), Mathf.Sin(-Mathf.PI * 0.5f));
         float magnitude = 3f;
         GetComponent<Rigidbody2D>().AddForce(direction * magnitude, ForceMode2D.Impulse);
     }

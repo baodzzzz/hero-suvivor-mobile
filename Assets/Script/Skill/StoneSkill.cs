@@ -14,7 +14,7 @@ public class StoneSkill : MonoBehaviour
         var angle = Random.Range(0, Mathf.PI * 2);
         var direction = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
         var magnitude = 2f;
-        GetComponent<Rigidbody2D>().AddForce(direction * magnitude, ForceMode2D.Impulse);
+      
         _crep = GameObject.FindGameObjectWithTag("Minion");
     }
 
@@ -22,12 +22,12 @@ public class StoneSkill : MonoBehaviour
 
     private void Update()
     {
-        if (!_crep) return;
+       /* if (!_crep) return;
             var distance = Vector3.Distance(_crep.transform.position, gameObject.transform.position);
         if (distance < 10f)
         {
             transform.position = Vector2.MoveTowards(transform.position, _crep.transform.position, Time.deltaTime * 2f);
-        }
+        }*/
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
