@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2949021212902983817}
   m_Layer: 0
   m_Name: SkillR
-  m_TagString: Untagged
+  m_TagString: SkillR
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
