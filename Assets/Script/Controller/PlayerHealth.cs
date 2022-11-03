@@ -6,7 +6,6 @@ namespace Script.Controller
     {
         public float maxHealth = 100;
         public float currentHealth;
-        public Animator animator;
         public HealthBar healthBar;
 
         // Start is called before the first frame update
@@ -21,12 +20,7 @@ namespace Script.Controller
         {
             if (currentHealth <= 0)
             {
-                animator.SetBool("isDie", false);
                 Destroy(gameObject);
-            }
-            else
-            {
-                animator.SetBool("isDie", true);
             }
         }
 

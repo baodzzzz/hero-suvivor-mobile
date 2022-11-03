@@ -633,8 +633,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 326063494}
-  prefabBulletSmall: {fileID: 5901887723769114222, guid: 6a6e0fab191975e418f1a5f24961e4e3, type: 3}
-  prefabWhipAttack: {fileID: 3925181622459694659, guid: d5a62323e55de4641b898c92f35817a2, type: 3}
+  prefabBulletSmall: {fileID: 5935507182968300454, guid: 07d6ae19346138941bceb2dd9bd964b5, type: 3}
   gameSkillController: {fileID: 1318072849}
 --- !u!114 &326063502
 MonoBehaviour:
@@ -4608,7 +4607,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: NormalAttack
+  m_Text: 
 --- !u!222 &955022721
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5125,6 +5124,9 @@ MonoBehaviour:
   prefabWhipAttack: {fileID: 5252893480464543748, guid: 9c3a96932179da54aab98a9188c07c0a, type: 3}
   prefabThienThach: {fileID: 4692255866693457307, guid: f4622b5d21bfba740a866ea078a5f15a, type: 3}
   prefabPhaoHoa: {fileID: 4906376967515732081, guid: a1fdd605158b2984ca0afad6ad0c2588, type: 3}
+  prefabSkillR: {fileID: 5042263772818916072, guid: 508a57b8cd4edfb498e3b754fecb519c, type: 3}
+  prefabSkillAuto: {fileID: 2126137884753881564, guid: 61166b7f345c4c1499d90a6a11956fa0, type: 3}
+  prefabSkillUtil: {fileID: 5013273825929825188, guid: 4306b3cbd780ec041bf2ce62ac4aaa4d, type: 3}
 --- !u!1 &1338027198
 GameObject:
   m_ObjectHideFlags: 0
@@ -19675,8 +19677,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -117, y: 465}
-  m_SizeDelta: {x: 171.80005, y: 151}
+  m_AnchoredPosition: {x: -134.44995, y: 434.89}
+  m_SizeDelta: {x: 136.89, y: 121.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1793010012
 MonoBehaviour:
@@ -19721,7 +19723,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1793010013}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1318072851}
+        m_TargetAssemblyTypeName: Script.Controller.GameSkillController, Assembly-CSharp
+        m_MethodName: ActiveSkillR
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1793010013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19742,7 +19756,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: eac3e2cd2f3070a4cb2521c534e1964f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 88c47ee50e9dfe240b499f761f7eda42, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -19797,8 +19811,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -190, y: 184}
-  m_SizeDelta: {x: 248, y: 202.8}
+  m_AnchoredPosition: {x: -180.31006, y: 189.13}
+  m_SizeDelta: {x: 228.62, y: 213.06}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1827171214
 MonoBehaviour:
@@ -19844,13 +19858,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1318072849}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1318072851}
+        m_TargetAssemblyTypeName: Script.Controller.GameSkillController, Assembly-CSharp
+        m_MethodName: ActiveSkillUtil
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -19876,7 +19890,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 912f2333824ee3946814a450e92ab11a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a19cebe0599724c469f757f6e0b2d9a4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
