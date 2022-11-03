@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Playables;
 
 namespace Script.Player
 {
@@ -27,10 +28,18 @@ namespace Script.Player
         }
         private void MovePlayer()
         {
-            moveH = joystick.Horizontal;
-            moveV = joystick.Vertical;
-            moveDir = new Vector2(moveH, moveV);
-            rb.velocity = Vector3.SmoothDamp(rb.velocity, moveDir * BaseSpeed, ref velocitySmoothing, SmoothTime);
+                moveH = joystick.Horizontal;
+                moveV = joystick.Vertical;
+                moveDir = new Vector2(moveH, moveV);
+                rb.velocity = Vector3.SmoothDamp(rb.velocity, moveDir * BaseSpeed, ref velocitySmoothing, SmoothTime);
+                if (joystick.Direction.x > 0)
+                {
+                    transform.rotation = Quaternion.Euler(0, 180, 0);
+                }
+                else if (joystick.Direction.x < 0)
+                {
+                    transform.rotation = Quaternion.Euler(0, 0, 0);
+                }
         }
 
         private void OnTriggerEnter2D(Collider2D col)
