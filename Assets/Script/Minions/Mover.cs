@@ -44,10 +44,10 @@ namespace Script.Minions
                 TakeDamage(_smallBullet.Damage);
             }
 
-            if (col.gameObject.CompareTag("WhipAttack"))
-            {
-                // TakeDamage(_whipAttack.Damage);
-            }
+            // if (col.gameObject.CompareTag("WhipAttack"))
+            // {
+            //     // TakeDamage(_whipAttack.Damage);
+            // }
         }
         
         private void TakeDamage(int damageAmount)

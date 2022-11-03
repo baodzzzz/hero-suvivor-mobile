@@ -41,7 +41,7 @@ namespace Script.Minions
             _player = GameObject.FindGameObjectWithTag("Player");
             _hp = 200;
             _minionSpr = gameObject.GetComponent<SpriteRenderer>();
-            _smallBullet = GameObject.FindGameObjectWithTag("SmallBullet").GetComponent<SmallBullet>();
+            _smallBullet = GameObject.FindGameObjectWithTag("BaseAttack").GetComponent<SmallBullet>();
             // _whipAttack = GameObject.FindGameObjectWithTag("WhipAttack").GetComponent<WhipAttack>();
             // _skillDownDuration.Duration = 5;
             // _skillDownDuration.Run();
@@ -73,10 +73,10 @@ namespace Script.Minions
                 TakeDamage(_smallBullet.Damage);
             }
 
-            if (col.gameObject.CompareTag("WhipAttack"))
-            {
-                // TakeDamage(_whipAttack.Damage);
-            }
+            // if (col.gameObject.CompareTag(""))
+            // {
+            //     // TakeDamage(_whipAttack.Damage);
+            // }
         }
 
         private void TakeDamage(int damageAmount)
