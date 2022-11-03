@@ -77,7 +77,6 @@ namespace Script.Minions
             // }
         }
         
-        
         private void TakeDamage(int damageAmount)
         {
             _hp -= damageAmount;

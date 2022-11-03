@@ -15,8 +15,7 @@ namespace Script.Minions
 
         private const int SpawnBorderSize = 100;
 
-        private Timer _spawnTimer, _delaySpawnTimer, _bossSpawner;
-
+        private Timer _spawnTimer, _waveSpawnTimer, _bossSpawnTimer, _moverSpawnTimer, _puzzlerSpawnTimer;
         private float _minSpawnX;
         private float _maxSpawnX;
         private float _minSpawnY;
@@ -25,10 +24,12 @@ namespace Script.Minions
         private Vector3 _spawnPosition;
         private GameObject _bossMinionObject;
         private Minion _bossMinion;
+        private int _spawnState;
 
         // Start is called before the first frame update
         void Start()
         {
+            _spawnState = 0;
             _camera = Camera.main;
             _minSpawnX = SpawnBorderSize;
             _maxSpawnX = Screen.width - SpawnBorderSize;
@@ -36,44 +37,74 @@ namespace Script.Minions
             _maxSpawnY = Screen.height - SpawnBorderSize;
 
             _spawnTimer = gameObject.AddComponent<Timer>();
-            _delaySpawnTimer = gameObject.AddComponent<Timer>();
             _spawnTimer.Duration = 2;
             _spawnTimer.Run();
+            _waveSpawnTimer = gameObject.AddComponent<Timer>();
+            _waveSpawnTimer.Duration = 60;
+            _waveSpawnTimer.Run();
+            _moverSpawnTimer = gameObject.AddComponent<Timer>();
+            _moverSpawnTimer.Duration = 1;
+            _moverSpawnTimer.Run();
+            _puzzlerSpawnTimer = gameObject.AddComponent<Timer>();
+            _puzzlerSpawnTimer.Duration = 1;
+            _puzzlerSpawnTimer.Run();
             _spawnPosition = transform.position;
-            _bossSpawner = gameObject.AddComponent<Timer>();
-            _bossSpawner.Duration = 10;
-            _bossSpawner.Run();
+            _bossSpawnTimer = gameObject.AddComponent<Timer>();
+            _bossSpawnTimer.Duration = 30;
+            _bossSpawnTimer.Run();
             _bossMinionObject = GameObject.FindGameObjectWithTag("Boss");
         }
 
         // Update is called once per frame
         void Update()
         {
-            MushroomSpawner();
+            Spawner();
+            if (!_waveSpawnTimer.Finished) return;
+            _spawnState++;
+            _waveSpawnTimer.Duration = 60;
+            _waveSpawnTimer.Run();
         }
 
         private void Spawner()
         {
-            var miLocation = RandomAxis();
-            var minion = Instantiate(prefabsMinion, miLocation, Quaternion.identity);
-            minion.transform.position = _camera.ScreenToWorldPoint(miLocation);
-            // var pLocation = RandomAxis();
-            // var puzzler = Instantiate(prefabsPuzzler, _spawnPosition, Quaternion.identity);
-            // puzzler.transform.position = _camera.ScreenToWorldPoint(pLocation);
-            // var mLocation = RandomAxis();
-            // var mover = Instantiate(prefabsMover, _spawnPosition, Quaternion.identity);
-            // mover.transform.position = _camera.ScreenToWorldPoint(mLocation);
+            switch (_spawnState)
+            {
+                case 0:
+                    MushroomSpawner();
+                    break;
+
+                case 1:
+                    MushroomSpawner();
+                    PuzzlerSpawner();
+                    break;
+                
+                case 2:
+                    MushroomSpawner();
+                    MoverSpawner();
+                    break;
+                
+                case 3:
+                    MoverSpawner();
+                    PuzzlerSpawner();
+                    break;
+                
+                case >= 4:
+                    MushroomSpawner();
+                    MoverSpawner();
+                    PuzzlerSpawner();
+                    break;
+            }
         }
 
         private void MushroomSpawner()
         {
             var miLocation = RandomAxis();
-            if (_bossSpawner.Finished)
+            if (_bossSpawnTimer.Finished)
             {
                 var bossMinion = Instantiate(prefabDragonBoss, _spawnPosition, Quaternion.identity);
                 bossMinion.transform.position = _camera.ScreenToWorldPoint(miLocation);
-                _bossSpawner.Duration = 10;
-                _bossSpawner.Run();
+                _bossSpawnTimer.Duration = 60;
+                _bossSpawnTimer.Run();
             }
 
             if (!_spawnTimer.Finished) return;
@@ -81,6 +112,26 @@ namespace Script.Minions
             minion.transform.position = _camera.ScreenToWorldPoint(miLocation);
             _spawnTimer.Duration = 1;
             _spawnTimer.Run();
+        }
+
+        private void MoverSpawner()
+        {
+            if (!_moverSpawnTimer.Finished) return;
+            var mLocation = RandomAxis();
+            var mover = Instantiate(prefabsMover, _spawnPosition, Quaternion.identity);
+            mover.transform.position = _camera.ScreenToWorldPoint(mLocation);
+            _moverSpawnTimer.Duration = 1;
+            _moverSpawnTimer.Run();
+        }
+
+        private void PuzzlerSpawner()
+        {
+            if (!_puzzlerSpawnTimer.Finished) return;
+            var pLocation = RandomAxis();
+            var puzzler = Instantiate(prefabsPuzzler, _spawnPosition, Quaternion.identity);
+            puzzler.transform.position = _camera.ScreenToWorldPoint(pLocation);
+            _puzzlerSpawnTimer.Duration = 1;
+            _puzzlerSpawnTimer.Run();
         }
 
         private Vector3 RandomAxis()
