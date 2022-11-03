@@ -68,7 +68,7 @@ namespace Script.Minions
 
         private void OnTriggerEnter2D(Collider2D col)
         {
-            if (col.gameObject.CompareTag("SmallBullet"))
+            if (col.gameObject.CompareTag("BaseAttack"))
             {
                 TakeDamage(_smallBullet.Damage);
             }
