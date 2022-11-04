@@ -34,11 +34,11 @@ public class Uitl : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D col)
+   /* private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.CompareTag("Minion") || col.gameObject.CompareTag("Boss"))
         {
             Destroy(col.gameObject);
         }
-    }
+    }*/
 }
