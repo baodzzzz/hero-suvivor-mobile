@@ -14,7 +14,7 @@ public class Exp : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         deathTimer = gameObject.AddComponent<Timer>();
-        deathTimer.Duration = 5;
+        deathTimer.Duration = 15;
         deathTimer.Run();
     }
 
@@ -22,10 +22,10 @@ public class Exp : MonoBehaviour
     void Update()
     {
         var distance = Vector3.Distance(player.transform.position, transform.position);
-        if (distance < 5f)
+        if (distance < 2f)
         {
             gameObject.transform.position =
-                Vector2.MoveTowards(transform.position, player.transform.position, Time.deltaTime * 2f);
+                Vector2.MoveTowards(transform.position, player.transform.position, Time.deltaTime * 5f);
         }
 
         if (deathTimer.Finished)

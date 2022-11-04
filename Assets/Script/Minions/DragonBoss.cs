@@ -22,6 +22,9 @@ namespace Script.Minions
         private static readonly int IsSkillDown = Animator.StringToHash("isSkillDown");
         private Camera _camera;
         private GameObject exp;
+        private FireSkill _fireSkill;
+        private StoneSkill _stoneSkill;
+        private Uitl _uitlSkill;
         public int HP
         {
             get => _hp;
@@ -48,6 +51,10 @@ namespace Script.Minions
             // _skillDownDuration.Run();
             _skillMountDuration.Duration = 3;
             _skillMountDuration.Run();
+            _fireSkill = GameObject.FindGameObjectWithTag("SkillW").GetComponent<FireSkill>();
+            _stoneSkill = GameObject.FindGameObjectWithTag("StoneAttack").GetComponent<StoneSkill>();
+            _uitlSkill = GameObject.FindGameObjectWithTag("SkillUtil").GetComponent<Uitl>();
+            _whipAttack = GameObject.FindGameObjectWithTag("SkillQ").GetComponent<WhipAttack>();
         }
 
         // Update is called once per frame
@@ -74,10 +81,35 @@ namespace Script.Minions
                 TakeDamage(_smallBullet.Damage);
             }
 
-            // if (col.gameObject.CompareTag(""))
-            // {
-            //     // TakeDamage(_whipAttack.Damage);
-            // }
+            if (col.gameObject.CompareTag("SkillQ"))
+            {
+                TakeDamage(20);
+            }
+
+            if (col.gameObject.CompareTag("SkillW"))
+            {
+                TakeDamage(15);
+            }
+
+            if (col.gameObject.CompareTag("StoneAttack"))
+            {
+                TakeDamage(30);
+            }
+
+            if (col.gameObject.CompareTag("SkillUtil"))
+            {
+                TakeDamage(15);
+            }
+            
+            if (col.gameObject.CompareTag("SkillR"))
+            {
+                TakeDamage(50);
+            }
+
+            if (col.gameObject.CompareTag("SkillE"))
+            {
+                TakeDamage(25);
+            }
         }
 
         private void TakeDamage(int damageAmount)

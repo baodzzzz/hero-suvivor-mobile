@@ -24,7 +24,7 @@ namespace MyNamespace
             deathTimer = gameObject.AddComponent<Timer>();
             deathTimer.Duration = LifeSeconds;
             deathTimer.Run();
-            _damage = 20;
+            _damage = 15;
         }
 
         // Update is called once per frame
@@ -45,13 +45,12 @@ namespace MyNamespace
         }
 
      
-        private void OnCollisionEnter2D(Collision2D col)
-        {
-            if (col.gameObject.CompareTag("Minion"))
-            {
-                Destroy(gameObject);
-                Debug.Log("BEEMMMM!");
-            }
-        }
+        // private void OnCollisionEnter2D(Collision2D col)
+        // {
+        //     if (col.gameObject.CompareTag("Minion"))
+        //     {
+        //         Destroy(gameObject);
+        //     }
+        // }
     }
 }

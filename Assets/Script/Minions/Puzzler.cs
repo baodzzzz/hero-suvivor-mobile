@@ -20,6 +20,9 @@ namespace Script.Minions
         private WhipAttack _whipAttack;
         private SpriteRenderer _minionSpr;
         private Vector3 _minionPosition, _playerPosition;
+        private FireSkill _fireSkill;
+        private StoneSkill _stoneSkill;
+        private Uitl _uitlSkill;
 
         // Start is called before the first frame update
         private void Start()
@@ -37,6 +40,10 @@ namespace Script.Minions
             _minionSpr = gameObject.GetComponent<SpriteRenderer>();
             _smallBullet = GameObject.FindGameObjectWithTag("BaseAttack").GetComponent<SmallBullet>();
             // _whipAttack = GameObject.FindGameObjectWithTag("WhipAttack").GetComponent<WhipAttack>();
+            _fireSkill = GameObject.FindGameObjectWithTag("SkillW").GetComponent<FireSkill>();
+            _stoneSkill = GameObject.FindGameObjectWithTag("StoneAttack").GetComponent<StoneSkill>();
+            _uitlSkill = GameObject.FindGameObjectWithTag("SkillUtil").GetComponent<Uitl>();
+            _whipAttack = GameObject.FindGameObjectWithTag("SkillQ").GetComponent<WhipAttack>();
         }
 
         // Update is called once per frame
@@ -70,11 +77,36 @@ namespace Script.Minions
             {
                 TakeDamage(_smallBullet.Damage);
             }
+            
+            if (col.gameObject.CompareTag("SkillQ"))
+            {
+                TakeDamage(20);
+            }
 
-            // if (col.gameObject.CompareTag("WhipAttack"))
-            // {
-            //     // TakeDamage(_whipAttack.Damage);
-            // }
+            if (col.gameObject.CompareTag("SkillW"))
+            {
+                TakeDamage(15);
+            }
+
+            if (col.gameObject.CompareTag("StoneAttack"))
+            {
+                TakeDamage(30);
+            }
+
+            if (col.gameObject.CompareTag("SkillUtil"))
+            {
+                TakeDamage(15);
+            }
+            
+            if (col.gameObject.CompareTag("SkillR"))
+            {
+                TakeDamage(50);
+            }
+
+            if (col.gameObject.CompareTag("SkillE"))
+            {
+                TakeDamage(25);
+            }
         }
         
         private void TakeDamage(int damageAmount)

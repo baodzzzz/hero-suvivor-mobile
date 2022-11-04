@@ -57,7 +57,6 @@ public class PlayerExp : MonoBehaviour
                 textPlus.text = "";
             }
             currentExp += 1;
-          
         }
     }
     

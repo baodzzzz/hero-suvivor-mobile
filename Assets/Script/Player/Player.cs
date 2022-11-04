@@ -7,7 +7,7 @@ namespace Script.Player
     {
         private Rigidbody2D rb;
         private float moveH, moveV;
-        public float BaseSpeed { get; set; } = 3;
+        public float BaseSpeed { get; set; } = 5f;
         public Animator animator;
         public float SmoothTime { get; set; } = 0.04f;
         private Vector3 moveDir;
@@ -15,9 +15,7 @@ namespace Script.Player
         private int _hp;
        
         public FixedJoystick joystick;
-
-       
-
+        
         void Start()
         {
            
@@ -46,7 +44,5 @@ namespace Script.Player
                     transform.rotation = Quaternion.Euler(0, 0, 0);
                 }
         }
-
-      
     }
 }
