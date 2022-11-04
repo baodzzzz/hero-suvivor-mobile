@@ -16,6 +16,8 @@ TagManager:
   - SkillR
   - SkillE
   - SkillUtil
+  - SmallBullet
+  - Exp
   layers:
   - Default
   - TransparentFX

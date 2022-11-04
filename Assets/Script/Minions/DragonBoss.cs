@@ -21,7 +21,10 @@ namespace Script.Minions
         private RuntimeAnimatorController _animatorController;
         private static readonly int IsSkillDown = Animator.StringToHash("isSkillDown");
         private Camera _camera;
-
+        private GameObject exp;
+        private FireSkill _fireSkill;
+        private StoneSkill _stoneSkill;
+        private Uitl _uitlSkill;
         public int HP
         {
             get => _hp;
@@ -31,6 +34,7 @@ namespace Script.Minions
         // Start is called before the first frame update
         private void Start()
         {
+            exp = GameObject.FindGameObjectWithTag("Exp");
             _camera = Camera.main;
             _animator = gameObject.GetComponent<Animator>();
             _skillDownDuration = gameObject.AddComponent<Timer>();
@@ -39,7 +43,7 @@ namespace Script.Minions
             _skillMountCooldown = gameObject.AddComponent<Timer>();
             _speed = 0.3f;
             _player = GameObject.FindGameObjectWithTag("Player");
-            _hp = 200;
+            _hp = 50;
             _minionSpr = gameObject.GetComponent<SpriteRenderer>();
             _smallBullet = GameObject.FindGameObjectWithTag("BaseAttack").GetComponent<SmallBullet>();
             // _whipAttack = GameObject.FindGameObjectWithTag("WhipAttack").GetComponent<WhipAttack>();
@@ -47,6 +51,10 @@ namespace Script.Minions
             // _skillDownDuration.Run();
             _skillMountDuration.Duration = 3;
             _skillMountDuration.Run();
+            // _fireSkill = GameObject.FindGameObjectWithTag("SkillW").GetComponent<FireSkill>();
+            // _stoneSkill = GameObject.FindGameObjectWithTag("StoneAttack").GetComponent<StoneSkill>();
+            // _uitlSkill = GameObject.FindGameObjectWithTag("SkillUtil").GetComponent<Uitl>();
+            // _whipAttack = GameObject.FindGameObjectWithTag("SkillQ").GetComponent<WhipAttack>();
         }
 
         // Update is called once per frame
@@ -73,10 +81,42 @@ namespace Script.Minions
                 TakeDamage(_smallBullet.Damage);
             }
 
-            // if (col.gameObject.CompareTag(""))
-            // {
-            //     // TakeDamage(_whipAttack.Damage);
-            // }
+            if (col.gameObject.CompareTag("SkillQ"))
+            {
+                TakeDamage(20);
+            }
+
+            if (col.gameObject.CompareTag("SkillW"))
+            {
+                TakeDamage(15);
+            }
+
+            if (col.gameObject.CompareTag("StoneAttack"))
+            {
+                TakeDamage(30);
+            }
+
+            if (col.gameObject.CompareTag("SkillUtil"))
+            {
+                TakeDamage(15);
+            }
+            
+            if (col.gameObject.CompareTag("SkillR"))
+            {
+                // TakeDamage(50);
+                Destroy(gameObject);
+            }
+
+            if (col.gameObject.CompareTag("SkillE"))
+            {
+                TakeDamage(25);
+            }
+            
+            if (col.gameObject.CompareTag("thunderbolt"))
+            {
+                TakeDamage(15);
+                // Destroy(gameObject);
+            }
         }
 
         private void TakeDamage(int damageAmount)
@@ -84,6 +124,8 @@ namespace Script.Minions
             _hp -= damageAmount;
             if (_hp <= 0)
             {
+                GameObject expBoss= Instantiate(exp, transform.position, Quaternion.identity);
+                expBoss.transform.localScale *= 2f;
                 Destroy(gameObject);
             }
         }

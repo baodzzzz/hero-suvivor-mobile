@@ -70,7 +70,6 @@ namespace Script.Controller
         {
             if (deathTimerA.Finished)
             {
-
                 ActiveSkillAutoGiatSet();
 
                 deathTimerA.Duration = 1.5f; // need change
@@ -133,46 +132,44 @@ namespace Script.Controller
                 deathTimerE.Run();
             }
         }
+
         public void ActiveSkillR()
         {
             Vector3 location = new Vector3(Random.Range(minSpawnX, maxSpawnX),
-          Random.Range(minSpawnY, maxSpawnY),
-          -Camera.main.transform.position.z);
+                Random.Range(minSpawnY, maxSpawnY),
+                -Camera.main.transform.position.z);
             Vector3 worldLocation = Camera.main.ScreenToWorldPoint(location);
 
             if (deathTimerR.Finished)
             {
-
-                GameObject skillR = Instantiate(prefabSkillR, transform.position, Quaternion.identity) ;
+                GameObject skillR = Instantiate(prefabSkillR, transform.position, Quaternion.identity);
                 skillR.transform.position = worldLocation;
-             
+
                 deathTimerR.Duration = 5; // need change
                 deathTimerR.Run();
             }
         }
+
         public void ActiveSkillAutoGiatSet()
-        {          
-          
-             GameObject[] allCrep = GameObject.FindGameObjectsWithTag("Minion");
-             foreach (GameObject currentCrep in allCrep)
-             {
-                 float distance = (currentCrep.transform.position - player.transform.position).sqrMagnitude;
-                 if (distance < 15f && deathTimerA.Finished)
-                 {                 
-                        GameObject skillX = Instantiate(prefabSkillAuto, currentCrep.transform.position, Quaternion.identity);
+        {
+            GameObject[] allCrep = GameObject.FindGameObjectsWithTag("Minion");
+            foreach (GameObject currentCrep in allCrep)
+            {
+                float distance = (currentCrep.transform.position - player.transform.position).sqrMagnitude;
+                if (distance < 15f && deathTimerA.Finished)
+                {
+                    GameObject skillX = Instantiate(prefabSkillAuto, currentCrep.transform.position,
+                        Quaternion.identity);
                     skillX.transform.position = currentCrep.transform.position;
 
                     deathTimerA.Duration = 1.5f; // need change
                     deathTimerA.Run();
                 }
-             }
-            
-
-            
+            }
         }
+
         public void ActiveSkillUtil()
         {
-
             GameObject[] allCrep = GameObject.FindGameObjectsWithTag("Boss");
             foreach (GameObject currentCrep in allCrep)
             {
@@ -186,9 +183,6 @@ namespace Script.Controller
                     deathTimerUtil.Run();
                 }
             }
-
-
-
         }
 
         public void setDirection(Vector2 dict)

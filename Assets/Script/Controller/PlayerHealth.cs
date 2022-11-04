@@ -39,18 +39,14 @@ namespace Script.Controller
 
             if (collision.gameObject.CompareTag("Boss"))
             {
-                TakeDamage(50);
+                TakeDamage(5);
             }
-            /* if (collision.gameObject.CompareTag("Mover"))
-        {
-            TakeDamage(5);
-            Debug.Log("-5!");
+            
+            if (collision.gameObject.CompareTag("BossSkill"))
+            {
+                TakeDamage(3);
+            }
         }
-        if (collision.gameObject.CompareTag("Puzzler"))
-        {
-            TakeDamage(10);
-            Debug.Log("-10!");
-        }*/
-        }
+       
     }
 }

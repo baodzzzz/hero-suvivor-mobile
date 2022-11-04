@@ -10,8 +10,6 @@ namespace Script.Skill
 
         [SerializeField] private GameObject prefabBulletSmall;
 
-        
-
         const float smallBulletLifeSeconds = 0.5f;
         Timer deathTimer;
         [SerializeField]

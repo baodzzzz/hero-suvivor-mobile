@@ -55,7 +55,7 @@ namespace Script.Skill
 
         private void OnTriggerEnter2D(Collider2D col)
         {
-            if (col.gameObject.CompareTag("Minion"))
+            if (col.gameObject.CompareTag("Minion") || col.gameObject.CompareTag("Boss"))
             {
                 Destroy(gameObject);
             }

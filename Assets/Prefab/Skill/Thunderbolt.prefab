@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5608198039741153150}
   - component: {fileID: 6982224267060797442}
   m_Layer: 0
-  m_Name: chumset
+  m_Name: Thunderbolt
   m_TagString: thunderbolt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -154,9 +154,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 519115404187413777}
     m_Modifications:
+    - target: {fileID: -5266424360257774127, guid: 423b7660c9189ac469b88b7ac9727d71, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5444216622801425423, guid: 423b7660c9189ac469b88b7ac9727d71, type: 3}
       propertyPath: m_Name
-      value: setdanhngangtai (1)
+      value: Thunderbolt
+      objectReference: {fileID: 0}
+    - target: {fileID: 5444216622801425423, guid: 423b7660c9189ac469b88b7ac9727d71, type: 3}
+      propertyPath: m_TagString
+      value: thunderbolt
       objectReference: {fileID: 0}
     - target: {fileID: 5852557174640496834, guid: 423b7660c9189ac469b88b7ac9727d71, type: 3}
       propertyPath: m_RootOrder
@@ -224,9 +232,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 519115404187413777}
     m_Modifications:
+    - target: {fileID: -5266424360257774127, guid: 423b7660c9189ac469b88b7ac9727d71, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5444216622801425423, guid: 423b7660c9189ac469b88b7ac9727d71, type: 3}
       propertyPath: m_Name
-      value: setdanhngangtai (1)
+      value: Thunderbolt
+      objectReference: {fileID: 0}
+    - target: {fileID: 5444216622801425423, guid: 423b7660c9189ac469b88b7ac9727d71, type: 3}
+      propertyPath: m_TagString
+      value: thunderbolt
       objectReference: {fileID: 0}
     - target: {fileID: 5852557174640496834, guid: 423b7660c9189ac469b88b7ac9727d71, type: 3}
       propertyPath: m_RootOrder
