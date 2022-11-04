@@ -74,12 +74,19 @@ namespace Script.Minions
 
             if (col.gameObject.CompareTag("SkillR"))
             {
-                TakeDamage(50);
+                // TakeDamage(50);
+                Destroy(gameObject);
             }
 
             if (col.gameObject.CompareTag("SkillE"))
             {
                 TakeDamage(25);
+            }
+
+            if (col.gameObject.CompareTag("thunderbolt"))
+            {
+                TakeDamage(15);
+                // Destroy(gameObject);
             }
         }
 

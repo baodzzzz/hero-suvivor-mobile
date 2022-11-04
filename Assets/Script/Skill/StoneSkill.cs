@@ -40,15 +40,15 @@ public class StoneSkill : MonoBehaviour
          }*/
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Minion"))
-        {
-            _crepMinion.HP -= _damage;
-            if (_crepMinion.HP <= 0)
-            {
-                Destroy(collision.gameObject);
-            }
-        }
-    }
+    // private void OnCollisionEnter2D(Collision2D collision)
+    // {
+    //     if (collision.gameObject.CompareTag("Minion"))
+    //     {
+    //         _crepMinion.HP -= _damage;
+    //         if (_crepMinion.HP <= 0)
+    //         {
+    //             Destroy(collision.gameObject);
+    //         }
+    //     }
+    // }
 }

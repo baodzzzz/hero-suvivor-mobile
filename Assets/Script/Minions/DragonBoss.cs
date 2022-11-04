@@ -43,7 +43,7 @@ namespace Script.Minions
             _skillMountCooldown = gameObject.AddComponent<Timer>();
             _speed = 0.3f;
             _player = GameObject.FindGameObjectWithTag("Player");
-            _hp = 200;
+            _hp = 50;
             _minionSpr = gameObject.GetComponent<SpriteRenderer>();
             _smallBullet = GameObject.FindGameObjectWithTag("BaseAttack").GetComponent<SmallBullet>();
             // _whipAttack = GameObject.FindGameObjectWithTag("WhipAttack").GetComponent<WhipAttack>();
@@ -51,10 +51,10 @@ namespace Script.Minions
             // _skillDownDuration.Run();
             _skillMountDuration.Duration = 3;
             _skillMountDuration.Run();
-            _fireSkill = GameObject.FindGameObjectWithTag("SkillW").GetComponent<FireSkill>();
-            _stoneSkill = GameObject.FindGameObjectWithTag("StoneAttack").GetComponent<StoneSkill>();
-            _uitlSkill = GameObject.FindGameObjectWithTag("SkillUtil").GetComponent<Uitl>();
-            _whipAttack = GameObject.FindGameObjectWithTag("SkillQ").GetComponent<WhipAttack>();
+            // _fireSkill = GameObject.FindGameObjectWithTag("SkillW").GetComponent<FireSkill>();
+            // _stoneSkill = GameObject.FindGameObjectWithTag("StoneAttack").GetComponent<StoneSkill>();
+            // _uitlSkill = GameObject.FindGameObjectWithTag("SkillUtil").GetComponent<Uitl>();
+            // _whipAttack = GameObject.FindGameObjectWithTag("SkillQ").GetComponent<WhipAttack>();
         }
 
         // Update is called once per frame
@@ -103,12 +103,19 @@ namespace Script.Minions
             
             if (col.gameObject.CompareTag("SkillR"))
             {
-                TakeDamage(50);
+                // TakeDamage(50);
+                Destroy(gameObject);
             }
 
             if (col.gameObject.CompareTag("SkillE"))
             {
                 TakeDamage(25);
+            }
+            
+            if (col.gameObject.CompareTag("thunderbolt"))
+            {
+                TakeDamage(15);
+                // Destroy(gameObject);
             }
         }
 
