@@ -13,7 +13,7 @@ public class MainMenu : MonoBehaviour
 	/// </summary>
 	public void HandlePlayButtonOnClickEvent()
     {
-		SceneManager.LoadScene("demo");
+		SceneManager.LoadScene("SampleScene");
 
     }
 
