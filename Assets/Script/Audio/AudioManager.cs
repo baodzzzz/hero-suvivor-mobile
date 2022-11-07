@@ -22,19 +22,19 @@ public class AudioManager : MonoBehaviour
         audioClips.Add(AudioClipName.BaseAttack,
             Resources.Load<AudioClip>("baseAttack"));
             audioClips.Add(AudioClipName.SkillQ,
-            Resources.Load<AudioClip>("shoot"));
+            Resources.Load<AudioClip>("skillQ"));
             audioClips.Add(AudioClipName.SKillW,
-            Resources.Load<AudioClip>("shoot"));
+            Resources.Load<AudioClip>("skillW"));
             audioClips.Add(AudioClipName.SkillE,
-            Resources.Load<AudioClip>("shoot"));
+            Resources.Load<AudioClip>("skillE"));
             audioClips.Add(AudioClipName.SkillR,
-            Resources.Load<AudioClip>("shoot"));
+            Resources.Load<AudioClip>("skillR"));
             audioClips.Add(AudioClipName.SkillUlti,
-            Resources.Load<AudioClip>("shoot"));
+            Resources.Load<AudioClip>("ulti"));
             audioClips.Add(AudioClipName.SKillRock,
-            Resources.Load<AudioClip>("shoot"));
+            Resources.Load<AudioClip>("stoneSkill"));
             audioClips.Add(AudioClipName.CrepDie,
-            Resources.Load<AudioClip>("shoot"));
+            Resources.Load<AudioClip>("crepDie"));
 
 
             

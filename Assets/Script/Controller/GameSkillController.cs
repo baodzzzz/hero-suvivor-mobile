@@ -85,6 +85,7 @@ namespace Script.Controller
             if (deathTimerQ.Finished)
             {
                 var Bullet = Instantiate(prefabWhipAttack, player.position, Quaternion.identity) as GameObject;
+                AudioManager.Play(AudioClipName.SkillQ);
                 Bullet.GetComponent<Rigidbody2D>().AddForce(direction * 4f, ForceMode2D.Impulse);
                 deathTimerQ.Duration = 1; // need change
                 deathTimerQ.Run();
@@ -101,6 +102,7 @@ namespace Script.Controller
             {
                 GameObject thienthach =
                     Instantiate(prefabThienThach, transform.position, Quaternion.identity) as GameObject;
+                AudioManager.Play(AudioClipName.SKillW);
                 thienthach.transform.position = worldLocation;
                 /* var distance = Vector3.Distance(crep.transform.position, transform.position);
                  if (distance < 10f)
@@ -120,6 +122,7 @@ namespace Script.Controller
             if (deathTimerE.Finished)
             {
                 var Bullet = Instantiate(prefabPhaoHoa, player.position, Quaternion.identity) as GameObject;
+                AudioManager.Play(AudioClipName.SkillE);
                 Bullet.GetComponent<Rigidbody2D>().AddForce(direction * 3f, ForceMode2D.Impulse);
                 /*if (!crep) return;
                 var distance = Vector3.Distance(crep.transform.position, transform.position);
@@ -143,6 +146,7 @@ namespace Script.Controller
             if (deathTimerR.Finished)
             {
                 GameObject skillR = Instantiate(prefabSkillR, transform.position, Quaternion.identity);
+                AudioManager.Play(AudioClipName.SkillR);
                 skillR.transform.position = worldLocation;
 
                 deathTimerR.Duration = 5; // need change

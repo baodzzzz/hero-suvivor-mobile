@@ -37,6 +37,7 @@ public class StoneSkillSpawner : MonoBehaviour
         Vector3 worldLocation = Camera.main.ScreenToWorldPoint(location);
 
         GameObject circle = Instantiate(prefabsStone, transform.position, Quaternion.identity) as GameObject;
+        AudioManager.Play(AudioClipName.SKillRock);
         circle.transform.position = worldLocation;
 
     }

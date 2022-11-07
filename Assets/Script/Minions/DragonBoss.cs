@@ -126,6 +126,7 @@ namespace Script.Minions
             {
                 GameObject expBoss= Instantiate(exp, transform.position, Quaternion.identity);
                 expBoss.transform.localScale *= 2f;
+                AudioManager.Play(AudioClipName.CrepDie);
                 Destroy(gameObject);
             }
         }

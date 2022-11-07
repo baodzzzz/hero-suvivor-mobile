@@ -96,6 +96,7 @@ namespace Script.Minions
             if (_hp <= 0)
             {
                 Instantiate(exp, transform.position, Quaternion.identity);
+                AudioManager.Play(AudioClipName.CrepDie);
                 Destroy(gameObject);
             }
         }
