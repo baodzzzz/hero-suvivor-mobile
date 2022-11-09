@@ -9,5 +9,6 @@ public enum AudioClipName
     SkillR,
     SkillUlti,
     SKillRock,
-    CrepDie
+    CrepDie,
+    thunder
 }

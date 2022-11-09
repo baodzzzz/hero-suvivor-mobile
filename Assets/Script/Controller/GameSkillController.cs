@@ -164,6 +164,7 @@ namespace Script.Controller
                 {
                     GameObject skillX = Instantiate(prefabSkillAuto, currentCrep.transform.position,
                         Quaternion.identity);
+                    AudioManager.Play(AudioClipName.thunder);
                     skillX.transform.position = currentCrep.transform.position;
 
                     deathTimerA.Duration = 1.5f; // need change
@@ -181,6 +182,7 @@ namespace Script.Controller
                 if (distance < 15f && deathTimerUtil.Finished)
                 {
                     GameObject util = Instantiate(prefabSkillUtil, currentCrep.transform.position, Quaternion.identity);
+                    AudioManager.Play(AudioClipName.SkillUlti);
                     util.transform.position = currentCrep.transform.position;
 
                     deathTimerUtil.Duration = 7f; // need change

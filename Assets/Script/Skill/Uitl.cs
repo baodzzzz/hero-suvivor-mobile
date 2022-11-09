@@ -28,7 +28,7 @@ public class Uitl : MonoBehaviour
     void Update()
     {
         // destroy the game object if the explosion has finished its animation
-        if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 9)
+        if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 6)
         {
             Destroy(gameObject);
         }

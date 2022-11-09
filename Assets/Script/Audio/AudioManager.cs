@@ -35,9 +35,11 @@ public class AudioManager : MonoBehaviour
             Resources.Load<AudioClip>("stoneSkill"));
             audioClips.Add(AudioClipName.CrepDie,
             Resources.Load<AudioClip>("crepDie"));
+            audioClips.Add(AudioClipName.thunder,
+            Resources.Load<AudioClip>("thunder"));
 
 
-            
+
     }
 
     /// <summary>
