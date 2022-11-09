@@ -20,6 +20,7 @@ namespace Script.Controller
         {
             if (currentHealth <= 0)
             {
+                AudioManager.Play(AudioClipName.PlayerDeath);
                 Destroy(gameObject);
             }
         }

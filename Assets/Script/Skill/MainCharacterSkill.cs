@@ -42,6 +42,7 @@ namespace Script.Skill
             {
                 GameObject Bullet = Instantiate(bullet, player.position, Quaternion.identity) as GameObject;
                 Bullet.GetComponent<Rigidbody2D>().AddForce(direction * 5f, ForceMode2D.Impulse);
+                AudioManager.Play(AudioClipName.BaseAttack);
                 /*Bullet.transform.position= Vector2.MoveTowards(transform.position, crep.transform.position, Time.deltaTime * 3f);*/
                 deathTimer.Duration = smallBulletLifeSeconds;
                 deathTimer.Run();

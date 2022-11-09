@@ -121,6 +121,7 @@ namespace Script.Minions
             _hp -= damageAmount;
             if (_hp <= 0)
             {
+                AudioManager.Play(AudioClipName.CrepDie);
                 Destroy(gameObject);
             }
         }

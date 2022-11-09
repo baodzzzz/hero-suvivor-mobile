@@ -72,7 +72,7 @@ namespace Script.Minions
 
             if (col.gameObject.CompareTag("SkillUtil"))
             {
-                TakeDamage(15);
+                Destroy(gameObject);
             }
 
             if (col.gameObject.CompareTag("SkillR"))
@@ -99,6 +99,7 @@ namespace Script.Minions
             if (_hp <= 0)
             {
                 Instantiate(exp, transform.position, Quaternion.identity);
+                AudioManager.Play(AudioClipName.CrepDie);
                 Destroy(gameObject);
             }
         }
