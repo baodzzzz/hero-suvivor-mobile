@@ -26,7 +26,7 @@ public class StoneSkillSpawner : MonoBehaviour
         maxSpawnY = Screen.height - SpawnBorderSize;
 
         spawnTimer = gameObject.AddComponent<Timer>();
-        spawnTimer.Duration = 4;
+        spawnTimer.Duration = 5;
         spawnTimer.Run();
     }
     void SpawnerStone()
@@ -50,7 +50,7 @@ public class StoneSkillSpawner : MonoBehaviour
         if (spawnTimer.Finished)
         {
             SpawnerStone();
-            spawnTimer.Duration = 4;
+            spawnTimer.Duration = 5;
             spawnTimer.Run();
         }
     }

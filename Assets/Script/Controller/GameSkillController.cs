@@ -13,6 +13,8 @@ namespace Script.Controller
         [SerializeField] GameObject prefabSkillUtil;
 
 
+      
+
         private float LifeSeconds = 0.1f;
         private Timer deathTimerQ;
         private Timer deathTimerW;
@@ -38,28 +40,28 @@ namespace Script.Controller
 
 
             deathTimerQ = gameObject.AddComponent<Timer>();
-            deathTimerQ.Duration = 1; // need change
+            deathTimerQ.Duration = 3; // need change
             deathTimerQ.Run();
 
             deathTimerE = gameObject.AddComponent<Timer>();
-            deathTimerE.Duration = 2; // need change
+            deathTimerE.Duration = 5; // need change
             deathTimerE.Run();
 
             deathTimerW = gameObject.AddComponent<Timer>();
-            deathTimerW.Duration = 3; // need change
+            deathTimerW.Duration = 6; // need change
             deathTimerW.Run();
 
             deathTimerR = gameObject.AddComponent<Timer>();
-            deathTimerR.Duration = 5; // need change
+            deathTimerR.Duration = 10; // need change
             deathTimerR.Run();
 
 
             deathTimerA = gameObject.AddComponent<Timer>();
-            deathTimerA.Duration = 2; // need change
+            deathTimerA.Duration = 3; // need change
             deathTimerA.Run();
 
             deathTimerUtil = gameObject.AddComponent<Timer>();
-            deathTimerUtil.Duration = 7; // need change
+            deathTimerUtil.Duration = 15; // need change
             deathTimerUtil.Run();
 
             crep = GameObject.FindGameObjectWithTag("Minion");
@@ -72,7 +74,7 @@ namespace Script.Controller
             {
                 ActiveSkillAutoGiatSet();
 
-                deathTimerA.Duration = 1.5f; // need change
+                deathTimerA.Duration = 3f; // need change
                 deathTimerA.Run();
             }
         }
@@ -87,8 +89,10 @@ namespace Script.Controller
                 var Bullet = Instantiate(prefabWhipAttack, player.position, Quaternion.identity) as GameObject;
                 AudioManager.Play(AudioClipName.SkillQ);
                 Bullet.GetComponent<Rigidbody2D>().AddForce(direction * 4f, ForceMode2D.Impulse);
-                deathTimerQ.Duration = 1; // need change
+                deathTimerQ.Duration = 3; // need change
                 deathTimerQ.Run();
+            /*    var script = spellSkillController.GetComponent<SpellCooldown>();*/
+                
             }
         }
 
@@ -110,7 +114,7 @@ namespace Script.Controller
                      prefabThienThach.transform.position =
                          Vector2.MoveTowards(transform.position, crep.transform.position, Time.deltaTime * 3f);
                  }*/
-                deathTimerW.Duration = 2; // need change
+                deathTimerW.Duration = 5; // need change
                 deathTimerW.Run();
             }
         }
@@ -131,7 +135,7 @@ namespace Script.Controller
                     gameObject.transform.position =
                         Vector2.MoveTowards(transform.position, crep.transform.position, Time.deltaTime * 2f);
                 }*/
-                deathTimerE.Duration = 3; // need change
+                deathTimerE.Duration = 6; // need change
                 deathTimerE.Run();
             }
         }
@@ -149,7 +153,7 @@ namespace Script.Controller
                 AudioManager.Play(AudioClipName.SkillR);
                 skillR.transform.position = worldLocation;
 
-                deathTimerR.Duration = 5; // need change
+                deathTimerR.Duration = 10; // need change
                 deathTimerR.Run();
             }
         }
@@ -167,7 +171,7 @@ namespace Script.Controller
                     AudioManager.Play(AudioClipName.thunder);
                     skillX.transform.position = currentCrep.transform.position;
 
-                    deathTimerA.Duration = 1.5f; // need change
+                    deathTimerA.Duration = 3f; // need change
                     deathTimerA.Run();
                 }
             }
@@ -185,7 +189,7 @@ namespace Script.Controller
                     AudioManager.Play(AudioClipName.SkillUlti);
                     util.transform.position = currentCrep.transform.position;
 
-                    deathTimerUtil.Duration = 7f; // need change
+                    deathTimerUtil.Duration = 15f; // need change
                     deathTimerUtil.Run();
                 }
             }
