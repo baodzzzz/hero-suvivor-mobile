@@ -6,7 +6,7 @@ public class StoneSkillSpawner : MonoBehaviour
 {
     [SerializeField]
     GameObject prefabsStone;
-
+    [SerializeField] GameObject playerMain;
     Timer spawnTimer;
 
 
@@ -18,6 +18,7 @@ public class StoneSkillSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         /* point = 0;
          pointTxt.text = "Score :" + point.ToString();*/
         minSpawnX = SpawnBorderSize;
@@ -47,7 +48,9 @@ public class StoneSkillSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (spawnTimer.Finished)
+        var script = playerMain.GetComponent<PlayerExp>();
+        
+        if (spawnTimer.Finished && script.level==7)
         {
             SpawnerStone();
             spawnTimer.Duration = 5;

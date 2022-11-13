@@ -38,6 +38,7 @@ namespace Script.Minions
         // Update is called once per frame
         private void Update()
         {
+            
             _minionPosition = transform.position;
             _playerPosition = _player.transform.position;
             _minionSpr.flipX = _minionPosition.x > _playerPosition.x;

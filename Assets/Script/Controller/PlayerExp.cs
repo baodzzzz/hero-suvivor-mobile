@@ -6,7 +6,7 @@ using static Cinemachine.DocumentationSortingAttribute;
 
 public class PlayerExp : MonoBehaviour
 {
-    private int level;
+    public int level;
     private float expNeedToUpLv;
     private float currentExp;
     public ExpBar expBar;

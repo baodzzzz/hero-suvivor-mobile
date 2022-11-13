@@ -15,6 +15,8 @@ namespace Script.Controller
 
 
         [SerializeField] Transform player;
+
+        [SerializeField] GameObject playerMain;
         [SerializeField] GameObject prefabWhipAttack;
         [SerializeField] GameObject prefabThienThach;
         [SerializeField] GameObject prefabPhaoHoa;
@@ -404,19 +406,23 @@ namespace Script.Controller
 
         public void ActiveSkillAutoGiatSet()
         {
-            GameObject[] allCrep = GameObject.FindGameObjectsWithTag("Minion");
-            foreach (GameObject currentCrep in allCrep)
+               var script = playerMain.GetComponent<PlayerExp>();
+            if (script.level == 4)
             {
-                float distance = (currentCrep.transform.position - player.transform.position).sqrMagnitude;
-                if (distance < 15f && deathTimerA.Finished)
+                GameObject[] allCrep = GameObject.FindGameObjectsWithTag("Minion");
+                foreach (GameObject currentCrep in allCrep)
                 {
-                    GameObject skillX = Instantiate(prefabSkillAuto, currentCrep.transform.position,
-                        Quaternion.identity);
-                    AudioManager.Play(AudioClipName.thunder);
-                    skillX.transform.position = currentCrep.transform.position;
+                    float distance = (currentCrep.transform.position - player.transform.position).sqrMagnitude;
+                    if (distance < 15f && deathTimerA.Finished)
+                    {
+                        GameObject skillX = Instantiate(prefabSkillAuto, currentCrep.transform.position,
+                            Quaternion.identity);
+                        AudioManager.Play(AudioClipName.thunder);
+                        skillX.transform.position = currentCrep.transform.position;
 
-                    deathTimerA.Duration = 3f; // need change
-                    deathTimerA.Run();
+                        deathTimerA.Duration = 3f; // need change
+                        deathTimerA.Run();
+                    }
                 }
             }
         }

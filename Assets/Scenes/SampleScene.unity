@@ -835,6 +835,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdf1861b069d69f40a78043383084393, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level: 0
   expBar: {fileID: 1575663379}
   textLv: {fileID: 714858466}
   textPlus: {fileID: 353495119}
@@ -930,7 +931,6 @@ GameObject:
   - component: {fileID: 425308466}
   - component: {fileID: 425308465}
   - component: {fileID: 425308464}
-  - component: {fileID: 425308467}
   m_Layer: 0
   m_Name: btnW
   m_TagString: Untagged
@@ -1054,21 +1054,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 425308462}
   m_CullTransparentMesh: 1
---- !u!114 &425308467
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 425308462}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75bb9a7ee833d96449ca039e19e44c96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  imageCooldown: {fileID: 179230416}
-  textCooldown: {fileID: 182443224}
-  cooldownTime: 5
 --- !u!1 &467884814
 GameObject:
   m_ObjectHideFlags: 0
@@ -4647,7 +4632,6 @@ GameObject:
   - component: {fileID: 735341812}
   - component: {fileID: 735341811}
   - component: {fileID: 735341810}
-  - component: {fileID: 735341813}
   m_Layer: 0
   m_Name: btnE
   m_TagString: Untagged
@@ -4771,21 +4755,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 735341808}
   m_CullTransparentMesh: 1
---- !u!114 &735341813
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 735341808}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75bb9a7ee833d96449ca039e19e44c96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  imageCooldown: {fileID: 115455592}
-  textCooldown: {fileID: 802052626}
-  cooldownTime: 7
 --- !u!1 &795128416
 GameObject:
   m_ObjectHideFlags: 0
@@ -5696,7 +5665,6 @@ GameObject:
   - component: {fileID: 1277243716}
   - component: {fileID: 1277243715}
   - component: {fileID: 1277243714}
-  - component: {fileID: 1277243717}
   m_Layer: 0
   m_Name: btnQ
   m_TagString: Untagged
@@ -5820,21 +5788,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1277243712}
   m_CullTransparentMesh: 1
---- !u!114 &1277243717
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1277243712}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75bb9a7ee833d96449ca039e19e44c96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  imageCooldown: {fileID: 803787994}
-  textCooldown: {fileID: 1150973649}
-  cooldownTime: 3
 --- !u!1 &1318072849
 GameObject:
   m_ObjectHideFlags: 0
@@ -5880,6 +5833,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 326063494}
+  playerMain: {fileID: 326063493}
   prefabWhipAttack: {fileID: 5252893480464543748, guid: 9c3a96932179da54aab98a9188c07c0a, type: 3}
   prefabThienThach: {fileID: 4692255866693457307, guid: f4622b5d21bfba740a866ea078a5f15a, type: 3}
   prefabPhaoHoa: {fileID: 4906376967515732081, guid: a1fdd605158b2984ca0afad6ad0c2588, type: 3}
@@ -20639,7 +20593,6 @@ GameObject:
   - component: {fileID: 1793010014}
   - component: {fileID: 1793010013}
   - component: {fileID: 1793010012}
-  - component: {fileID: 1793010015}
   m_Layer: 0
   m_Name: btnR
   m_TagString: Untagged
@@ -20763,21 +20716,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1793010010}
   m_CullTransparentMesh: 1
---- !u!114 &1793010015
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1793010010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75bb9a7ee833d96449ca039e19e44c96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  imageCooldown: {fileID: 975412337}
-  textCooldown: {fileID: 621844309}
-  cooldownTime: 10
 --- !u!1 &1827171212
 GameObject:
   m_ObjectHideFlags: 0
@@ -20790,7 +20728,6 @@ GameObject:
   - component: {fileID: 1827171216}
   - component: {fileID: 1827171215}
   - component: {fileID: 1827171214}
-  - component: {fileID: 1827171217}
   m_Layer: 0
   m_Name: btnMainSkill
   m_TagString: Untagged
@@ -20914,21 +20851,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1827171212}
   m_CullTransparentMesh: 1
---- !u!114 &1827171217
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1827171212}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75bb9a7ee833d96449ca039e19e44c96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  imageCooldown: {fileID: 1879948694}
-  textCooldown: {fileID: 955022720}
-  cooldownTime: 15
 --- !u!1 &1849765753
 GameObject:
   m_ObjectHideFlags: 0
