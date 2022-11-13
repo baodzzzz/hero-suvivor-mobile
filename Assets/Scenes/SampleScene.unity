@@ -5886,6 +5886,16 @@ MonoBehaviour:
   prefabSkillR: {fileID: 5042263772818916072, guid: 508a57b8cd4edfb498e3b754fecb519c, type: 3}
   prefabSkillAuto: {fileID: 2126137884753881564, guid: 61166b7f345c4c1499d90a6a11956fa0, type: 3}
   prefabSkillUtil: {fileID: 5013273825929825188, guid: 4306b3cbd780ec041bf2ce62ac4aaa4d, type: 3}
+  imageCooldownQ: {fileID: 803787994}
+  imageCooldownW: {fileID: 179230416}
+  imageCooldownE: {fileID: 115455592}
+  imageCooldownR: {fileID: 975412337}
+  imageCooldownUlti: {fileID: 1879948694}
+  textCooldownQ: {fileID: 1150973649}
+  textCooldownW: {fileID: 182443224}
+  textCooldownE: {fileID: 802052626}
+  textCooldownR: {fileID: 621844309}
+  textCooldownUlti: {fileID: 955022720}
 --- !u!1 &1338027198
 GameObject:
   m_ObjectHideFlags: 0
@@ -20861,18 +20871,6 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Script.Controller.GameSkillController, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
