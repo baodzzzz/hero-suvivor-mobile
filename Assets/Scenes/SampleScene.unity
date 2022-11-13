@@ -1394,6 +1394,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabsStone: {fileID: 7993839895506335223, guid: a1a18a705281b03488fcebab90302cf3, type: 3}
+  playerMain: {fileID: 326063493}
 --- !u!1 &621844307
 GameObject:
   m_ObjectHideFlags: 0
