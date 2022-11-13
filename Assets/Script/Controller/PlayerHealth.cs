@@ -5,13 +5,14 @@ namespace Script.Controller
     public class PlayerHealth : MonoBehaviour
     {
         public float maxHealth = 100;
+        public static Player.Player player = new Player.Player();
         public float currentHealth;
         public HealthBar healthBar;
 
         // Start is called before the first frame update
         void Start()
         {
-            currentHealth = maxHealth;
+            currentHealth = player.hp;
             healthBar.SetMaxHealth(maxHealth);
         }
 

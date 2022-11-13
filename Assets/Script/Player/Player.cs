@@ -12,22 +12,46 @@ namespace Script.Player
         public float SmoothTime { get; set; } = 0.04f;
         private Vector3 moveDir;
         private Vector3 velocitySmoothing;
-        private int _hp;
+        public int hp = 100;
+        public int level = 0;
        
         public FixedJoystick joystick;
+
+        public void SavePlayer()
+        {
+            SaveSystem.SavePlayer(this);
+        }
+
+        public void LoadPlayer()
+        {
+            PlayerData data = SaveSystem.LoadPlayer();
+
+            level = data.level;
+            if(data.hp != 0)
+            {
+                hp = data.hp;
+            }
+            Vector3 position;
+
+            position.x = data.position[0];
+            position.y = data.position[1];
+            position.z = data.position[2];
+            transform.position = position;
+
+        }
         
         void Start()
-        {
-           
+        {       
             rb = GetComponent<Rigidbody2D>();
-            _hp = 50;
         }
         // Update is called once per frame
         void Update()
         {
-            MovePlayer();
-           
+            if (this.rb != null)
+            {
+                MovePlayer();         
 
+            }
         }
         private void MovePlayer()
         {
